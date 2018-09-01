@@ -8,6 +8,21 @@
 
 /* Begin PBXBuildFile section */
 		614D5937213A310C00F73E03 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 614D5936213A310C00F73E03 /* main.cpp */; };
+		614D593F213A311600F73E03 /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 614D593E213A311600F73E03 /* OpenGL.framework */; };
+		614D5941213A311B00F73E03 /* GLUT.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 614D5940213A311B00F73E03 /* GLUT.framework */; };
+		616C49BC213A8D2000DD2251 /* VectorMaths.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 616C49A2213A8D1C00DD2251 /* VectorMaths.cpp */; };
+		616C49BD213A8D2000DD2251 /* Camera.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 616C49A5213A8D1C00DD2251 /* Camera.cpp */; };
+		616C49BE213A8D2000DD2251 /* Messages.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 616C49A7213A8D1C00DD2251 /* Messages.cpp */; };
+		616C49BF213A8D2000DD2251 /* ObstacleManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 616C49A8213A8D1D00DD2251 /* ObstacleManager.cpp */; };
+		616C49C0213A8D2000DD2251 /* KeyManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 616C49AB213A8D1D00DD2251 /* KeyManager.cpp */; };
+		616C49C1213A8D2000DD2251 /* RemoteDataManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 616C49AC213A8D1D00DD2251 /* RemoteDataManager.cpp */; };
+		616C49C2213A8D2000DD2251 /* Frustum.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 616C49AF213A8D1D00DD2251 /* Frustum.cpp */; };
+		616C49C3213A8D2000DD2251 /* Vehicle.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 616C49B0213A8D1E00DD2251 /* Vehicle.cpp */; };
+		616C49C4213A8D2000DD2251 /* HUD.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 616C49B2213A8D1E00DD2251 /* HUD.cpp */; };
+		616C49C5213A8D2000DD2251 /* Ground.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 616C49B6213A8D1E00DD2251 /* Ground.cpp */; };
+		616C49C6213A8D2000DD2251 /* Quaternion.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 616C49B8213A8D1F00DD2251 /* Quaternion.cpp */; };
+		616C49C7213A8D2000DD2251 /* Shape.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 616C49B9213A8D1F00DD2251 /* Shape.cpp */; };
+		616C49C8213A8D2000DD2251 /* Obstacle.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 616C49BB213A8D1F00DD2251 /* Obstacle.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -25,6 +40,34 @@
 /* Begin PBXFileReference section */
 		614D5933213A310C00F73E03 /* MTRN2500_OpenGL_assign2 */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = MTRN2500_OpenGL_assign2; sourceTree = BUILT_PRODUCTS_DIR; };
 		614D5936213A310C00F73E03 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
+		614D593E213A311600F73E03 /* OpenGL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGL.framework; path = System/Library/Frameworks/OpenGL.framework; sourceTree = SDKROOT; };
+		614D5940213A311B00F73E03 /* GLUT.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GLUT.framework; path = System/Library/Frameworks/GLUT.framework; sourceTree = SDKROOT; };
+		616C49A2213A8D1C00DD2251 /* VectorMaths.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = VectorMaths.cpp; sourceTree = "<group>"; };
+		616C49A3213A8D1C00DD2251 /* Messages.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Messages.hpp; sourceTree = "<group>"; };
+		616C49A4213A8D1C00DD2251 /* Shape.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Shape.hpp; sourceTree = "<group>"; };
+		616C49A5213A8D1C00DD2251 /* Camera.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Camera.cpp; sourceTree = "<group>"; };
+		616C49A6213A8D1C00DD2251 /* Camera.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Camera.hpp; sourceTree = "<group>"; };
+		616C49A7213A8D1C00DD2251 /* Messages.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Messages.cpp; sourceTree = "<group>"; };
+		616C49A8213A8D1D00DD2251 /* ObstacleManager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ObstacleManager.cpp; sourceTree = "<group>"; };
+		616C49A9213A8D1D00DD2251 /* ObstacleManager.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = ObstacleManager.hpp; sourceTree = "<group>"; };
+		616C49AA213A8D1D00DD2251 /* Vehicle.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Vehicle.hpp; sourceTree = "<group>"; };
+		616C49AB213A8D1D00DD2251 /* KeyManager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = KeyManager.cpp; sourceTree = "<group>"; };
+		616C49AC213A8D1D00DD2251 /* RemoteDataManager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = RemoteDataManager.cpp; sourceTree = "<group>"; };
+		616C49AD213A8D1D00DD2251 /* Quaternion.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Quaternion.hpp; sourceTree = "<group>"; };
+		616C49AE213A8D1D00DD2251 /* RemoteDataManager.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = RemoteDataManager.hpp; sourceTree = "<group>"; };
+		616C49AF213A8D1D00DD2251 /* Frustum.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Frustum.cpp; sourceTree = "<group>"; };
+		616C49B0213A8D1E00DD2251 /* Vehicle.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Vehicle.cpp; sourceTree = "<group>"; };
+		616C49B1213A8D1E00DD2251 /* Frustum.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Frustum.hpp; sourceTree = "<group>"; };
+		616C49B2213A8D1E00DD2251 /* HUD.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = HUD.cpp; sourceTree = "<group>"; };
+		616C49B3213A8D1E00DD2251 /* HUD.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = HUD.hpp; sourceTree = "<group>"; };
+		616C49B4213A8D1E00DD2251 /* VectorMaths.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = VectorMaths.hpp; sourceTree = "<group>"; };
+		616C49B5213A8D1E00DD2251 /* Ground.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Ground.hpp; sourceTree = "<group>"; };
+		616C49B6213A8D1E00DD2251 /* Ground.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Ground.cpp; sourceTree = "<group>"; };
+		616C49B7213A8D1F00DD2251 /* Obstacle.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Obstacle.hpp; sourceTree = "<group>"; };
+		616C49B8213A8D1F00DD2251 /* Quaternion.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Quaternion.cpp; sourceTree = "<group>"; };
+		616C49B9213A8D1F00DD2251 /* Shape.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Shape.cpp; sourceTree = "<group>"; };
+		616C49BA213A8D1F00DD2251 /* KeyManager.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = KeyManager.hpp; sourceTree = "<group>"; };
+		616C49BB213A8D1F00DD2251 /* Obstacle.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Obstacle.cpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -32,6 +75,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				614D5941213A311B00F73E03 /* GLUT.framework in Frameworks */,
+				614D593F213A311600F73E03 /* OpenGL.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -43,6 +88,7 @@
 			children = (
 				614D5935213A310C00F73E03 /* MTRN2500_OpenGL_assign2 */,
 				614D5934213A310C00F73E03 /* Products */,
+				614D593D213A311600F73E03 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -58,8 +104,43 @@
 			isa = PBXGroup;
 			children = (
 				614D5936213A310C00F73E03 /* main.cpp */,
+				616C49A5213A8D1C00DD2251 /* Camera.cpp */,
+				616C49A6213A8D1C00DD2251 /* Camera.hpp */,
+				616C49AF213A8D1D00DD2251 /* Frustum.cpp */,
+				616C49B1213A8D1E00DD2251 /* Frustum.hpp */,
+				616C49B6213A8D1E00DD2251 /* Ground.cpp */,
+				616C49B5213A8D1E00DD2251 /* Ground.hpp */,
+				616C49B2213A8D1E00DD2251 /* HUD.cpp */,
+				616C49B3213A8D1E00DD2251 /* HUD.hpp */,
+				616C49AB213A8D1D00DD2251 /* KeyManager.cpp */,
+				616C49BA213A8D1F00DD2251 /* KeyManager.hpp */,
+				616C49A7213A8D1C00DD2251 /* Messages.cpp */,
+				616C49A3213A8D1C00DD2251 /* Messages.hpp */,
+				616C49BB213A8D1F00DD2251 /* Obstacle.cpp */,
+				616C49B7213A8D1F00DD2251 /* Obstacle.hpp */,
+				616C49A8213A8D1D00DD2251 /* ObstacleManager.cpp */,
+				616C49A9213A8D1D00DD2251 /* ObstacleManager.hpp */,
+				616C49B8213A8D1F00DD2251 /* Quaternion.cpp */,
+				616C49AD213A8D1D00DD2251 /* Quaternion.hpp */,
+				616C49AC213A8D1D00DD2251 /* RemoteDataManager.cpp */,
+				616C49AE213A8D1D00DD2251 /* RemoteDataManager.hpp */,
+				616C49B9213A8D1F00DD2251 /* Shape.cpp */,
+				616C49A4213A8D1C00DD2251 /* Shape.hpp */,
+				616C49A2213A8D1C00DD2251 /* VectorMaths.cpp */,
+				616C49B4213A8D1E00DD2251 /* VectorMaths.hpp */,
+				616C49B0213A8D1E00DD2251 /* Vehicle.cpp */,
+				616C49AA213A8D1D00DD2251 /* Vehicle.hpp */,
 			);
 			path = MTRN2500_OpenGL_assign2;
+			sourceTree = "<group>";
+		};
+		614D593D213A311600F73E03 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				614D5940213A311B00F73E03 /* GLUT.framework */,
+				614D593E213A311600F73E03 /* OpenGL.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -119,7 +200,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				616C49C7213A8D2000DD2251 /* Shape.cpp in Sources */,
+				616C49C1213A8D2000DD2251 /* RemoteDataManager.cpp in Sources */,
+				616C49BF213A8D2000DD2251 /* ObstacleManager.cpp in Sources */,
+				616C49C5213A8D2000DD2251 /* Ground.cpp in Sources */,
+				616C49C2213A8D2000DD2251 /* Frustum.cpp in Sources */,
+				616C49C0213A8D2000DD2251 /* KeyManager.cpp in Sources */,
+				616C49C8213A8D2000DD2251 /* Obstacle.cpp in Sources */,
+				616C49C6213A8D2000DD2251 /* Quaternion.cpp in Sources */,
+				616C49BC213A8D2000DD2251 /* VectorMaths.cpp in Sources */,
+				616C49BE213A8D2000DD2251 /* Messages.cpp in Sources */,
+				616C49BD213A8D2000DD2251 /* Camera.cpp in Sources */,
+				616C49C3213A8D2000DD2251 /* Vehicle.cpp in Sources */,
 				614D5937213A310C00F73E03 /* main.cpp in Sources */,
+				616C49C4213A8D2000DD2251 /* HUD.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
