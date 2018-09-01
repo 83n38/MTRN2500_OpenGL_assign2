@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		614D5937213A310C00F73E03 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 614D5936213A310C00F73E03 /* main.cpp */; };
 		614D593F213A311600F73E03 /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 614D593E213A311600F73E03 /* OpenGL.framework */; };
 		614D5941213A311B00F73E03 /* GLUT.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 614D5940213A311B00F73E03 /* GLUT.framework */; };
 		616C49BC213A8D2000DD2251 /* VectorMaths.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 616C49A2213A8D1C00DD2251 /* VectorMaths.cpp */; };
@@ -23,6 +22,7 @@
 		616C49C6213A8D2000DD2251 /* Quaternion.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 616C49B8213A8D1F00DD2251 /* Quaternion.cpp */; };
 		616C49C7213A8D2000DD2251 /* Shape.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 616C49B9213A8D1F00DD2251 /* Shape.cpp */; };
 		616C49C8213A8D2000DD2251 /* Obstacle.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 616C49BB213A8D1F00DD2251 /* Obstacle.cpp */; };
+		616C49CA213A980D00DD2251 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 616C49C9213A980C00DD2251 /* main.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -39,7 +39,6 @@
 
 /* Begin PBXFileReference section */
 		614D5933213A310C00F73E03 /* MTRN2500_OpenGL_assign2 */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = MTRN2500_OpenGL_assign2; sourceTree = BUILT_PRODUCTS_DIR; };
-		614D5936213A310C00F73E03 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		614D593E213A311600F73E03 /* OpenGL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGL.framework; path = System/Library/Frameworks/OpenGL.framework; sourceTree = SDKROOT; };
 		614D5940213A311B00F73E03 /* GLUT.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GLUT.framework; path = System/Library/Frameworks/GLUT.framework; sourceTree = SDKROOT; };
 		616C49A2213A8D1C00DD2251 /* VectorMaths.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = VectorMaths.cpp; sourceTree = "<group>"; };
@@ -68,6 +67,7 @@
 		616C49B9213A8D1F00DD2251 /* Shape.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Shape.cpp; sourceTree = "<group>"; };
 		616C49BA213A8D1F00DD2251 /* KeyManager.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = KeyManager.hpp; sourceTree = "<group>"; };
 		616C49BB213A8D1F00DD2251 /* Obstacle.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Obstacle.cpp; sourceTree = "<group>"; };
+		616C49C9213A980C00DD2251 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = main.cpp; path = /Users/benhenderson/Desktop/UNi/MTRN2500/MTRN2500_OpenGL_assign2/MTRN2500_OpenGL_assign2/main.cpp; sourceTree = "<absolute>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -75,8 +75,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				614D5941213A311B00F73E03 /* GLUT.framework in Frameworks */,
 				614D593F213A311600F73E03 /* OpenGL.framework in Frameworks */,
+				614D5941213A311B00F73E03 /* GLUT.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -103,7 +103,7 @@
 		614D5935213A310C00F73E03 /* MTRN2500_OpenGL_assign2 */ = {
 			isa = PBXGroup;
 			children = (
-				614D5936213A310C00F73E03 /* main.cpp */,
+				616C49C9213A980C00DD2251 /* main.cpp */,
 				616C49A5213A8D1C00DD2251 /* Camera.cpp */,
 				616C49A6213A8D1C00DD2251 /* Camera.hpp */,
 				616C49AF213A8D1D00DD2251 /* Frustum.cpp */,
@@ -204,6 +204,7 @@
 				616C49C1213A8D2000DD2251 /* RemoteDataManager.cpp in Sources */,
 				616C49BF213A8D2000DD2251 /* ObstacleManager.cpp in Sources */,
 				616C49C5213A8D2000DD2251 /* Ground.cpp in Sources */,
+				616C49CA213A980D00DD2251 /* main.cpp in Sources */,
 				616C49C2213A8D2000DD2251 /* Frustum.cpp in Sources */,
 				616C49C0213A8D2000DD2251 /* KeyManager.cpp in Sources */,
 				616C49C8213A8D2000DD2251 /* Obstacle.cpp in Sources */,
@@ -212,7 +213,6 @@
 				616C49BE213A8D2000DD2251 /* Messages.cpp in Sources */,
 				616C49BD213A8D2000DD2251 /* Camera.cpp in Sources */,
 				616C49C3213A8D2000DD2251 /* Vehicle.cpp in Sources */,
-				614D5937213A310C00F73E03 /* main.cpp in Sources */,
 				616C49C4213A8D2000DD2251 /* HUD.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
