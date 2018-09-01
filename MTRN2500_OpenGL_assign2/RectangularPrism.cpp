@@ -7,21 +7,6 @@
 
 #include "RectangularPrism.hpp"
 
-#ifdef __APPLE__
-#include <OpenGL/gl.h>
-#include <OpenGL/glu.h>
-#include <GLUT/glut.h>
-#elif defined(WIN32)
-#include <Windows.h>
-#include <GL/gl.h>
-#include <GL/glu.h>
-#include <GL/glut.h>
-#else
-#include <GL/gl.h>
-#include <GL/glu.h>
-#include <GL/glut.h>
-#endif
-
 RectangularPrism::RectangularPrism() {
     x_length = y_length = z_length = 1;
 }
@@ -43,19 +28,124 @@ RectangularPrism::RectangularPrism(double x_, double y_, double z_, double x_len
 }
 
 void RectangularPrism::draw() {
-    glBegin(GL_LINES);
-        
-    glColor3f(1, 0.5f, 0.5f);
     
-    glVertex3f(1, 0, 0);
-    glVertex3f(1, 0, 1);
-    glVertex3f(0, 0, 1);
-    glVertex3f(0, 0, 0);
+    glPushMatrix();
     
-    glVertex3f(1, 1, 0);
-    glVertex3f(1, 1, 1);
-    glVertex3f(0, 1, 1);
-    glVertex3f(0, 1, 0);
+    // positions the cube correctly
+    this->positionInGL();
     
+    // sizes the cube correctly
+    glScalef(x_length, y_length, z_length);
+    
+    // colours correctly
+    this->setColorInGL();
+    
+    glBegin(GL_QUADS);                // Begin drawing the color cube with 6 quads
+    // Top face (y = 0.5f)
+    // Define vertices in counter-clockwise (CCW) order with normal pointing out
+    glVertex3f( 0.5f, 0.5f, -0.5f);
+    glVertex3f(-0.5f, 0.5f, -0.5f);
+    glVertex3f(-0.5f, 0.5f,  0.5f);
+    glVertex3f( 0.5f, 0.5f,  0.5f);
+    
+    // Bottom face (y = -0.5f)
+    glVertex3f( 0.5f, -0.5f,  0.5f);
+    glVertex3f(-0.5f, -0.5f,  0.5f);
+    glVertex3f(-0.5f, -0.5f, -0.5f);
+    glVertex3f( 0.5f, -0.5f, -0.5f);
+    
+    // Front face  (z = 0.5f)
+    glVertex3f( 0.5f,  0.5f, 0.5f);
+    glVertex3f(-0.5f,  0.5f, 0.5f);
+    glVertex3f(-0.5f, -0.5f, 0.5f);
+    glVertex3f( 0.5f, -0.5f, 0.5f);
+    
+    // Back face (z = -0.5f)
+    glVertex3f( 0.5f, -0.5f, -0.5f);
+    glVertex3f(-0.5f, -0.5f, -0.5f);
+    glVertex3f(-0.5f,  0.5f, -0.5f);
+    glVertex3f( 0.5f,  0.5f, -0.5f);
+    
+    // Left face (x = -0.5f)
+    glVertex3f(-0.5f,  0.5f,  0.5f);
+    glVertex3f(-0.5f,  0.5f, -0.5f);
+    glVertex3f(-0.5f, -0.5f, -0.5f);
+    glVertex3f(-0.5f, -0.5f,  0.5f);
+    
+    // Right face (x = 0.5f)
+    glVertex3f(0.5f,  0.5f, -0.5f);
+    glVertex3f(0.5f,  0.5f,  0.5f);
+    glVertex3f(0.5f, -0.5f,  0.5f);
+    glVertex3f(0.5f, -0.5f, -0.5f);
+    glEnd();  // End of drawing color-cube
+    
+    glBegin(GL_LINE_LOOP);            // Draw the edges in black
+    glColor3f(0.0f, 0.0f, 0.0f);
+    glVertex3f( 0.5f, 0.5f, -0.5f);
+    glVertex3f(-0.5f, 0.5f, -0.5f);
+    glVertex3f(-0.5f, 0.5f,  0.5f);
+    glVertex3f( 0.5f, 0.5f,  0.5f);
     glEnd();
+    
+    // Bottom face (y = -0.5f)
+    glBegin(GL_LINE_LOOP);
+    glVertex3f( 0.5f, -0.5f,  0.5f);
+    glVertex3f(-0.5f, -0.5f,  0.5f);
+    glVertex3f(-0.5f, -0.5f, -0.5f);
+    glVertex3f( 0.5f, -0.5f, -0.5f);
+    glEnd();
+    
+    glBegin(GL_LINES);
+    glVertex3f( 0.5f, 0.5f, -0.5f);
+    glVertex3f( 0.5f, -0.5f, -0.5f);
+    glVertex3f(-0.5f, 0.5f, -0.5f);
+    glVertex3f(-0.5f, -0.5f, -0.5f);
+    glVertex3f(-0.5f, 0.5f,  0.5f);
+    glVertex3f(-0.5f, -0.5f,  0.5f);
+    glVertex3f( 0.5f, -0.5f,  0.5f);
+    glVertex3f( 0.5f, -0.5f,  0.5f);
+    glEnd();
+    
+    glPopMatrix();
+    
+    
+//    // Render a pyramid consists of 4 triangles
+//    //glLoadIdentity();                  // Reset the model-view matrix
+//    glTranslatef(-1.5f, 0.0f, -6.0f);  // Move left and into the screen
+//
+//    glBegin(GL_TRIANGLES);           // Begin drawing the pyramid with 4 triangles
+//    // Front
+//    glColor3f(0.5f, 0.0f, 0.0f);     // Red
+//    glVertex3f( 0.0f, 0.5f, 0.0f);
+//    glColor3f(0.0f, 0.5f, 0.0f);     // Green
+//    glVertex3f(-0.5f, -0.5f, 0.5f);
+//    glColor3f(0.0f, 0.0f, 0.5f);     // Blue
+//    glVertex3f(0.5f, -0.5f, 0.5f);
+//
+//    // Right
+//    glColor3f(0.5f, 0.0f, 0.0f);     // Red
+//    glVertex3f(0.0f, 0.5f, 0.0f);
+//    glColor3f(0.0f, 0.0f, 0.5f);     // Blue
+//    glVertex3f(0.5f, -0.5f, 0.5f);
+//    glColor3f(0.0f, 0.5f, 0.0f);     // Green
+//    glVertex3f(0.5f, -0.5f, -0.5f);
+//
+//    // Back
+//    glColor3f(0.5f, 0.0f, 0.0f);     // Red
+//    glVertex3f(0.0f, 0.5f, 0.0f);
+//    glColor3f(0.0f, 0.5f, 0.0f);     // Green
+//    glVertex3f(0.5f, -0.5f, -0.5f);
+//    glColor3f(0.0f, 0.0f, 0.5f);     // Blue
+//    glVertex3f(-0.5f, -0.5f, -0.5f);
+//
+//    // Left
+//    glColor3f(0.5f,0.0f,0.0f);       // Red
+//    glVertex3f( 0.0f, 0.5f, 0.0f);
+//    glColor3f(0.0f,0.0f,0.5f);       // Blue
+//    glVertex3f(-0.5f,-0.5f,-0.5f);
+//    glColor3f(0.0f,0.5f,0.0f);       // Green
+//    glVertex3f(-0.5f,-0.5f, 0.5f);
+//    glEnd();   // Done drawing the pyramid
+    
+
 }

@@ -33,6 +33,7 @@
 
 #include "Shape.hpp"
 #include "RectangularPrism.hpp"
+#include "TriangularPrism.hpp"
 #include "Vehicle.hpp"
 
 #include "RemoteDataManager.hpp"
@@ -65,6 +66,8 @@ int prev_mouse_y = -1;
 Vehicle * vehicle = NULL;
 double speed = 0;
 double steering = 0;
+
+TriangularPrism tri;
 
 // default goal location
 std::deque<GoalState> goals;
@@ -111,8 +114,10 @@ int main(int argc, char ** argv) {
 	//vehicle = new MyVehicle();
 
     // test shapes
-    RectangularPrism cube = RectangularPrism();
-    
+    float v1[] = {1.f, 0.f, 1.f};
+    float v2[] = {float(-0.5 - sqrt(3)/2), 0, float(sqrt(3)/2 - 0.5)};
+    float v3[] = {float(-0.5f + sqrt(3)/2), 0, float(-sqrt(3)/2 - 0.5)};
+    TriangularPrism tri = TriangularPrism();
     
 	// add test obstacles
 	ObstacleManager::get()->addObstacle(Obstacle(10,10, 1));
@@ -181,8 +186,8 @@ void display() {
 	Ground::draw();
 	
     // draw test shapes
-    RectangularPrism cube = RectangularPrism();
-    cube.draw();
+    
+    tri.draw();
     
 	// draw other vehicles
 	for(std::map<int, Vehicle *>::iterator iter = otherVehicles.begin(); iter != otherVehicles.end(); ++iter) 
