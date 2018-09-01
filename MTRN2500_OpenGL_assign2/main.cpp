@@ -32,6 +32,7 @@
 #include "KeyManager.hpp"
 
 #include "Shape.hpp"
+#include "RectangularPrism.hpp"
 #include "Vehicle.hpp"
 
 #include "RemoteDataManager.hpp"
@@ -109,7 +110,10 @@ int main(int argc, char ** argv) {
 
 	//vehicle = new MyVehicle();
 
-
+    // test shapes
+    RectangularPrism cube = RectangularPrism();
+    
+    
 	// add test obstacles
 	ObstacleManager::get()->addObstacle(Obstacle(10,10, 1));
 	ObstacleManager::get()->addObstacle(Obstacle(10,-10, 1));
@@ -176,6 +180,10 @@ void display() {
 
 	Ground::draw();
 	
+    // draw test shapes
+    RectangularPrism cube = RectangularPrism();
+    cube.draw();
+    
 	// draw other vehicles
 	for(std::map<int, Vehicle *>::iterator iter = otherVehicles.begin(); iter != otherVehicles.end(); ++iter) 
 		iter->second->draw();

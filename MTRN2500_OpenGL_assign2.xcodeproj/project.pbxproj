@@ -23,6 +23,7 @@
 		616C49C7213A8D2000DD2251 /* Shape.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 616C49B9213A8D1F00DD2251 /* Shape.cpp */; };
 		616C49C8213A8D2000DD2251 /* Obstacle.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 616C49BB213A8D1F00DD2251 /* Obstacle.cpp */; };
 		616C49CA213A980D00DD2251 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 616C49C9213A980C00DD2251 /* main.cpp */; };
+		616C49CD213A9CB400DD2251 /* RectangularPrism.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 616C49CC213A9CB300DD2251 /* RectangularPrism.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -68,6 +69,8 @@
 		616C49BA213A8D1F00DD2251 /* KeyManager.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = KeyManager.hpp; sourceTree = "<group>"; };
 		616C49BB213A8D1F00DD2251 /* Obstacle.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Obstacle.cpp; sourceTree = "<group>"; };
 		616C49C9213A980C00DD2251 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = main.cpp; path = /Users/benhenderson/Desktop/UNi/MTRN2500/MTRN2500_OpenGL_assign2/MTRN2500_OpenGL_assign2/main.cpp; sourceTree = "<absolute>"; };
+		616C49CB213A9CAE00DD2251 /* RectangularPrism.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; name = RectangularPrism.hpp; path = /Users/benhenderson/Desktop/UNi/MTRN2500/MTRN2500_OpenGL_assign2/MTRN2500_OpenGL_assign2/RectangularPrism.hpp; sourceTree = "<absolute>"; };
+		616C49CC213A9CB300DD2251 /* RectangularPrism.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = RectangularPrism.cpp; path = /Users/benhenderson/Desktop/UNi/MTRN2500/MTRN2500_OpenGL_assign2/MTRN2500_OpenGL_assign2/RectangularPrism.cpp; sourceTree = "<absolute>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -104,6 +107,8 @@
 			isa = PBXGroup;
 			children = (
 				616C49C9213A980C00DD2251 /* main.cpp */,
+				616C49CC213A9CB300DD2251 /* RectangularPrism.cpp */,
+				616C49CB213A9CAE00DD2251 /* RectangularPrism.hpp */,
 				616C49A5213A8D1C00DD2251 /* Camera.cpp */,
 				616C49A6213A8D1C00DD2251 /* Camera.hpp */,
 				616C49AF213A8D1D00DD2251 /* Frustum.cpp */,
@@ -205,6 +210,7 @@
 				616C49BF213A8D2000DD2251 /* ObstacleManager.cpp in Sources */,
 				616C49C5213A8D2000DD2251 /* Ground.cpp in Sources */,
 				616C49CA213A980D00DD2251 /* main.cpp in Sources */,
+				616C49CD213A9CB400DD2251 /* RectangularPrism.cpp in Sources */,
 				616C49C2213A8D2000DD2251 /* Frustum.cpp in Sources */,
 				616C49C0213A8D2000DD2251 /* KeyManager.cpp in Sources */,
 				616C49C8213A8D2000DD2251 /* Obstacle.cpp in Sources */,
