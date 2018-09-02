@@ -25,6 +25,8 @@
 		616C49CA213A980D00DD2251 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 616C49C9213A980C00DD2251 /* main.cpp */; };
 		616C49CD213A9CB400DD2251 /* RectangularPrism.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 616C49CC213A9CB300DD2251 /* RectangularPrism.cpp */; };
 		616C49D0213B1D7A00DD2251 /* TriangularPrism.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 616C49CF213B1D7800DD2251 /* TriangularPrism.cpp */; };
+		616C49D2213B578300DD2251 /* Cylinder.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 616C49D1213B578100DD2251 /* Cylinder.cpp */; };
+		616C49D5213B784E00DD2251 /* TrapezoidalPrism.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 616C49D4213B784D00DD2251 /* TrapezoidalPrism.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -74,6 +76,10 @@
 		616C49CC213A9CB300DD2251 /* RectangularPrism.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = RectangularPrism.cpp; path = /Users/benhenderson/Desktop/UNi/MTRN2500/MTRN2500_OpenGL_assign2/MTRN2500_OpenGL_assign2/RectangularPrism.cpp; sourceTree = "<absolute>"; };
 		616C49CE213B1D7400DD2251 /* TriangularPrism.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; name = TriangularPrism.hpp; path = /Users/benhenderson/Desktop/UNi/MTRN2500/MTRN2500_OpenGL_assign2/MTRN2500_OpenGL_assign2/TriangularPrism.hpp; sourceTree = "<absolute>"; };
 		616C49CF213B1D7800DD2251 /* TriangularPrism.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = TriangularPrism.cpp; path = /Users/benhenderson/Desktop/UNi/MTRN2500/MTRN2500_OpenGL_assign2/MTRN2500_OpenGL_assign2/TriangularPrism.cpp; sourceTree = "<absolute>"; };
+		616C49D1213B578100DD2251 /* Cylinder.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = Cylinder.cpp; path = /Users/benhenderson/Desktop/UNi/MTRN2500/MTRN2500_OpenGL_assign2/MTRN2500_OpenGL_assign2/Cylinder.cpp; sourceTree = "<absolute>"; };
+		616C49D3213B578A00DD2251 /* Cylinder.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; name = Cylinder.hpp; path = /Users/benhenderson/Desktop/UNi/MTRN2500/MTRN2500_OpenGL_assign2/MTRN2500_OpenGL_assign2/Cylinder.hpp; sourceTree = "<absolute>"; };
+		616C49D4213B784D00DD2251 /* TrapezoidalPrism.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = TrapezoidalPrism.cpp; path = /Users/benhenderson/Desktop/UNi/MTRN2500/MTRN2500_OpenGL_assign2/MTRN2500_OpenGL_assign2/TrapezoidalPrism.cpp; sourceTree = "<absolute>"; };
+		616C49D6213B785000DD2251 /* TrapezoidalPrism.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; name = TrapezoidalPrism.hpp; path = /Users/benhenderson/Desktop/UNi/MTRN2500/MTRN2500_OpenGL_assign2/MTRN2500_OpenGL_assign2/TrapezoidalPrism.hpp; sourceTree = "<absolute>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -110,6 +116,10 @@
 			isa = PBXGroup;
 			children = (
 				616C49C9213A980C00DD2251 /* main.cpp */,
+				616C49D6213B785000DD2251 /* TrapezoidalPrism.hpp */,
+				616C49D4213B784D00DD2251 /* TrapezoidalPrism.cpp */,
+				616C49D1213B578100DD2251 /* Cylinder.cpp */,
+				616C49D3213B578A00DD2251 /* Cylinder.hpp */,
 				616C49CF213B1D7800DD2251 /* TriangularPrism.cpp */,
 				616C49CE213B1D7400DD2251 /* TriangularPrism.hpp */,
 				616C49CC213A9CB300DD2251 /* RectangularPrism.cpp */,
@@ -212,6 +222,7 @@
 			files = (
 				616C49C7213A8D2000DD2251 /* Shape.cpp in Sources */,
 				616C49C1213A8D2000DD2251 /* RemoteDataManager.cpp in Sources */,
+				616C49D2213B578300DD2251 /* Cylinder.cpp in Sources */,
 				616C49BF213A8D2000DD2251 /* ObstacleManager.cpp in Sources */,
 				616C49C5213A8D2000DD2251 /* Ground.cpp in Sources */,
 				616C49CA213A980D00DD2251 /* main.cpp in Sources */,
@@ -224,6 +235,7 @@
 				616C49BC213A8D2000DD2251 /* VectorMaths.cpp in Sources */,
 				616C49BE213A8D2000DD2251 /* Messages.cpp in Sources */,
 				616C49BD213A8D2000DD2251 /* Camera.cpp in Sources */,
+				616C49D5213B784E00DD2251 /* TrapezoidalPrism.cpp in Sources */,
 				616C49C3213A8D2000DD2251 /* Vehicle.cpp in Sources */,
 				616C49C4213A8D2000DD2251 /* HUD.cpp in Sources */,
 			);

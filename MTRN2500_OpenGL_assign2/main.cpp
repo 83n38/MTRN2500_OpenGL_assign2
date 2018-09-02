@@ -34,6 +34,7 @@
 #include "Shape.hpp"
 #include "RectangularPrism.hpp"
 #include "TriangularPrism.hpp"
+#include "Cylinder.hpp"
 #include "Vehicle.hpp"
 
 #include "RemoteDataManager.hpp"
@@ -68,6 +69,7 @@ double speed = 0;
 double steering = 0;
 
 TriangularPrism tri;
+Cylinder cyl;
 
 // default goal location
 std::deque<GoalState> goals;
@@ -114,10 +116,11 @@ int main(int argc, char ** argv) {
 	//vehicle = new MyVehicle();
 
     // test shapes
-    float v1[] = {1.f, 0.f, 1.f};
-    float v2[] = {float(-0.5 - sqrt(3)/2), 0, float(sqrt(3)/2 - 0.5)};
-    float v3[] = {float(-0.5f + sqrt(3)/2), 0, float(-sqrt(3)/2 - 0.5)};
-    TriangularPrism tri = TriangularPrism();
+    float v1[] = {0.f, 3.f, 2.f};
+    float v2[] = {6.f, 0.f, -3.f};
+    float v3[] = {-1.f, 0.f, 3.f};
+    tri = TriangularPrism(v1,v2,v3,10);
+    cyl = Cylinder(0,0,0,1,10);
     
 	// add test obstacles
 	ObstacleManager::get()->addObstacle(Obstacle(10,10, 1));
@@ -186,8 +189,9 @@ void display() {
 	Ground::draw();
 	
     // draw test shapes
-    
+    cyl.setRotation(frameCounter);
     tri.draw();
+    cyl.draw();
     
 	// draw other vehicles
 	for(std::map<int, Vehicle *>::iterator iter = otherVehicles.begin(); iter != otherVehicles.end(); ++iter) 

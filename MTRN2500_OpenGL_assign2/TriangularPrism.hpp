@@ -30,18 +30,29 @@
 class TriangularPrism : public Shape {
 public:
     TriangularPrism();
-    TriangularPrism(double x_, double y_, double z_, float* v1_, float* v2_, float* v3_, double length_);
-    TriangularPrism(double x_, double y_, double z_, float* v1_, float* v2_, float* v3_, double length_, double rotation_);
+    TriangularPrism(float* v1_, float* v2_, float* v3_, double length_);
+    TriangularPrism(float* v1_, float* v2_, float* v3_, double length_, double rotation_);
+    
     void draw();
+    
+    void setX(double x_);
+    void setY(double y_);
+    void setZ(double z_);
+    void setPosition(double x_, double y_, double z_);
+    
 protected:
     float v1[3];
     float v2[3];
     float v3[3];
     float length[3];
+    float c[3];
 private:
     static const int X = 0;
     static const int Y = 1;
     static const int Z = 2;
+    static double findCentroidX(float* v1_, float* v2_, float* v3_, double length_);
+    static double findCentroidY(float* v1_, float* v2_, float* v3_, double length_);
+    static double findCentroidZ(float* v1_, float* v2_, float* v3_, double length_);
 };
 
 #endif /* TriangularPrism_hpp */
