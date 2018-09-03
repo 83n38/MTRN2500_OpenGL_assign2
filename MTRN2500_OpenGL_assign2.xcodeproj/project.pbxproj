@@ -27,6 +27,7 @@
 		616C49D0213B1D7A00DD2251 /* TriangularPrism.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 616C49CF213B1D7800DD2251 /* TriangularPrism.cpp */; };
 		616C49D2213B578300DD2251 /* Cylinder.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 616C49D1213B578100DD2251 /* Cylinder.cpp */; };
 		616C49D5213B784E00DD2251 /* TrapezoidalPrism.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 616C49D4213B784D00DD2251 /* TrapezoidalPrism.cpp */; };
+		616C49D9213BDCB200DD2251 /* SnowPlowVehicle.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 616C49D8213BDCB100DD2251 /* SnowPlowVehicle.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -80,6 +81,8 @@
 		616C49D3213B578A00DD2251 /* Cylinder.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; name = Cylinder.hpp; path = /Users/benhenderson/Desktop/UNi/MTRN2500/MTRN2500_OpenGL_assign2/MTRN2500_OpenGL_assign2/Cylinder.hpp; sourceTree = "<absolute>"; };
 		616C49D4213B784D00DD2251 /* TrapezoidalPrism.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = TrapezoidalPrism.cpp; path = /Users/benhenderson/Desktop/UNi/MTRN2500/MTRN2500_OpenGL_assign2/MTRN2500_OpenGL_assign2/TrapezoidalPrism.cpp; sourceTree = "<absolute>"; };
 		616C49D6213B785000DD2251 /* TrapezoidalPrism.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; name = TrapezoidalPrism.hpp; path = /Users/benhenderson/Desktop/UNi/MTRN2500/MTRN2500_OpenGL_assign2/MTRN2500_OpenGL_assign2/TrapezoidalPrism.hpp; sourceTree = "<absolute>"; };
+		616C49D7213BDCAC00DD2251 /* SnowPlowVehicle.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; name = SnowPlowVehicle.hpp; path = /Users/benhenderson/Desktop/UNi/MTRN2500/MTRN2500_OpenGL_assign2/MTRN2500_OpenGL_assign2/SnowPlowVehicle.hpp; sourceTree = "<absolute>"; };
+		616C49D8213BDCB100DD2251 /* SnowPlowVehicle.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = SnowPlowVehicle.cpp; path = /Users/benhenderson/Desktop/UNi/MTRN2500/MTRN2500_OpenGL_assign2/MTRN2500_OpenGL_assign2/SnowPlowVehicle.cpp; sourceTree = "<absolute>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -116,6 +119,8 @@
 			isa = PBXGroup;
 			children = (
 				616C49C9213A980C00DD2251 /* main.cpp */,
+				616C49D8213BDCB100DD2251 /* SnowPlowVehicle.cpp */,
+				616C49D7213BDCAC00DD2251 /* SnowPlowVehicle.hpp */,
 				616C49D6213B785000DD2251 /* TrapezoidalPrism.hpp */,
 				616C49D4213B784D00DD2251 /* TrapezoidalPrism.cpp */,
 				616C49D1213B578100DD2251 /* Cylinder.cpp */,
@@ -233,6 +238,7 @@
 				616C49C8213A8D2000DD2251 /* Obstacle.cpp in Sources */,
 				616C49C6213A8D2000DD2251 /* Quaternion.cpp in Sources */,
 				616C49BC213A8D2000DD2251 /* VectorMaths.cpp in Sources */,
+				616C49D9213BDCB200DD2251 /* SnowPlowVehicle.cpp in Sources */,
 				616C49BE213A8D2000DD2251 /* Messages.cpp in Sources */,
 				616C49BD213A8D2000DD2251 /* Camera.cpp in Sources */,
 				616C49D5213B784E00DD2251 /* TrapezoidalPrism.cpp in Sources */,

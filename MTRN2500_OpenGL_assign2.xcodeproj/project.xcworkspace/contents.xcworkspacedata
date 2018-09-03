@@ -2,6 +2,12 @@
 <Workspace
    version = "1.0">
    <FileRef
+      location = "group:/Users/benhenderson/Desktop/UNi/MTRN2500/MTRN2500_OpenGL_assign2/MTRN2500_OpenGL_assign2/SnowPlowVehicle.cpp">
+   </FileRef>
+   <FileRef
+      location = "group:/Users/benhenderson/Desktop/UNi/MTRN2500/MTRN2500_OpenGL_assign2/MTRN2500_OpenGL_assign2/SnowPlowVehicle.hpp">
+   </FileRef>
+   <FileRef
       location = "group:/Users/benhenderson/Desktop/UNi/MTRN2500/MTRN2500_OpenGL_assign2/MTRN2500_OpenGL_assign2/TrapezoidalPrism.cpp">
    </FileRef>
    <FileRef

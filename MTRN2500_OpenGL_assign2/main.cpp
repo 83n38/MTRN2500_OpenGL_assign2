@@ -34,8 +34,10 @@
 #include "Shape.hpp"
 #include "RectangularPrism.hpp"
 #include "TriangularPrism.hpp"
+#include "TrapezoidalPrism.hpp"
 #include "Cylinder.hpp"
 #include "Vehicle.hpp"
+#include "SnowPlowVehicle.hpp"
 
 #include "RemoteDataManager.hpp"
 #include "Messages.hpp"
@@ -70,6 +72,7 @@ double steering = 0;
 
 TriangularPrism tri;
 Cylinder cyl;
+TrapezoidalPrism trap;
 
 // default goal location
 std::deque<GoalState> goals;
@@ -113,14 +116,15 @@ int main(int argc, char ** argv) {
 	//   custom vehicle.
 	// -------------------------------------------------------------------------
 
-	//vehicle = new MyVehicle();
+	vehicle = new SnowPlowVehicle();
 
     // test shapes
-    float v1[] = {0.f, 3.f, 2.f};
-    float v2[] = {6.f, 0.f, -3.f};
-    float v3[] = {-1.f, 0.f, 3.f};
-    tri = TriangularPrism(v1,v2,v3,10);
-    cyl = Cylinder(0,0,0,1,10);
+//    float v1[] = {0.f, 3.f, 2.f};
+//    float v2[] = {6.f, 0.f, -3.f};
+//    float v3[] = {-1.f, 0.f, 3.f};
+//    tri = TriangularPrism(v1,v2,v3,10);
+//    cyl = Cylinder(0,0,0,1,10);
+//    trap = TrapezoidalPrism();
     
 	// add test obstacles
 	ObstacleManager::get()->addObstacle(Obstacle(10,10, 1));
@@ -189,9 +193,11 @@ void display() {
 	Ground::draw();
 	
     // draw test shapes
-    cyl.setRotation(frameCounter);
-    tri.draw();
-    cyl.draw();
+//    trap.setPosition(frameCounter, 0, 0);
+//    trap.setRotation(frameCounter);
+//    trap.draw();
+//    tri.draw();
+//    cyl.draw();
     
 	// draw other vehicles
 	for(std::map<int, Vehicle *>::iterator iter = otherVehicles.begin(); iter != otherVehicles.end(); ++iter) 

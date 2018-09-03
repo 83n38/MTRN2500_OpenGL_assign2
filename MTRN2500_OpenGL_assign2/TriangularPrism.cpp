@@ -19,7 +19,9 @@ TriangularPrism::TriangularPrism() {
     v2[X] = -0.5f; v2[Y] = 0.f; v2[Z] = float(sqrt(3)/2);
     v3[X] = -0.5f; v2[Y] = 0.f; v2[Z] = float(-sqrt(3)/2);
     length[X] = 0.f; length[Y] = 1.f; length[Z] = 0.f;
-    c[X] = x; c[Y] = y; c[Z] = z;
+    c[X] = x = this->findCentroidX(v1, v2, v3, 1);
+    c[Y] = y = this->findCentroidY(v1, v2, v3, 1);
+    c[Z] = z = this->findCentroidZ(v1, v2, v3, 1);
 }
 
 TriangularPrism::TriangularPrism(float* v1_, float* v2_, float* v3_, double length_)
@@ -92,6 +94,8 @@ void TriangularPrism::draw() {
     glVertex3f(f2[X], f2[Y], f2[Z]);
     glVertex3f(vc3[X], vc3[Y], vc3[Z]);
     glVertex3f(f3[X], f3[Y], f3[Z]);
+    glVertex3f(vc1[X], vc1[Y], vc1[Z]);
+    glVertex3f(f1[X], f1[Y], f1[Z]);
     glEnd();
     
     // draw edges in black
