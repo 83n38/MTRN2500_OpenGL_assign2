@@ -366,7 +366,9 @@ void idle() {
 								VehicleModel vm = models[i];
 								
 								// uncomment the line below to create remote vehicles
-								otherVehicles[vm.remoteID] = new SnowPlowVehicle();
+                                
+                                // pass in the vm struct to the constructor so we make it right
+								otherVehicles[vm.remoteID] = new SnowPlowVehicle(vm);
 
 								//
 								// more student code goes here

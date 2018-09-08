@@ -13,11 +13,13 @@
 #include "TriangularPrism.hpp"
 #include "TrapezoidalPrism.hpp"
 #include "Cylinder.hpp"
+#include "Messages.hpp"
 #include <stdio.h>
 
 class SnowPlowVehicle : public Vehicle {
 public:
     SnowPlowVehicle();
+    SnowPlowVehicle(VehicleModel vm);
     
     void draw();
 private:
