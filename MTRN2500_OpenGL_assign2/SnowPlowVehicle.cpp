@@ -67,6 +67,47 @@ SnowPlowVehicle::SnowPlowVehicle() {
     this->addShape(RFrim);
 }
 
+// constructor for remote vehicles recived from messages from the interwebs
+SnowPlowVehicle::SnowPlowVehicle(VehicleModel vm) {
+    // loop through all the shapes that are in this model
+    std::vector<ShapeInit>::iterator it;
+    for (it = vm.shapes.begin(); it != vm.shapes.end(); ++it) {
+        switch (it->type) {
+            case RECTANGULAR_PRISM: {
+                // just a pointer to the rectangular parameters struct so I don't have to type it all out
+                struct ShapeParameter::RectangularParameters* data = &(it->params.rect);
+                RectangularPrism* rect = new RectangularPrism(it->xyz[0], it->xyz[0], it->xyz[0], data->xlen, data->ylen, data->zlen, it->rotation);
+                rect->draw();
+                this->addShape(rect);
+                break;
+            }
+                
+            case TRIANGULAR_PRISM: {
+                struct ShapeParameter::TriangularParameters* data = &(it->params.tri);
+                
+                RectangularPrism* tri = new TriangularPrism(v1, v2, v3, length, it->rotation);
+                break;
+            }
+                
+            case TRAPEZOIDAL_PRISM: {
+                
+                break;
+            }
+                
+            case CYLINDER: {
+                
+                break;
+            }
+                
+            default: {
+                std::cout << "Recieved an UNKNOWN_SHAPE" << std::endl;
+                break;
+            }
+        }
+    }
+    
+}
+
 void SnowPlowVehicle::draw() {
     
     std::vector<Shape *>::iterator it;
