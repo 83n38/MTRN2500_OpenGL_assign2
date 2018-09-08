@@ -90,13 +90,6 @@ void SnowPlowVehicle::draw() {
     // now pop the matrix, back to original coordinates
     glPopMatrix();
     
-    //    for (int i = 0; i < 4; i++) {
-    //        shapes[i]->draw();
-    //    }
-    //    window.draw();
-    //    plow.draw();
-    //    shaft.draw();
-    
     
 }
 
