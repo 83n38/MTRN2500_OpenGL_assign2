@@ -53,30 +53,27 @@ SnowPlowVehicle::SnowPlowVehicle() {
 
 void SnowPlowVehicle::draw() {
     
-    //
-    
-    // set components the correct positions
-    window->setPosition(windowX + this->x, windowY + this->y, windowZ + this->z);
-    body->setPosition(bodyX + this->x, bodyY + this->y, bodyZ + this->z);
-    frontdiffuser->setPosition(frontdiffuserX + this->x, frontdiffuserY + this->y, frontdiffuserZ + this->z);
-    LRwheel->setPosition(xRwheelX + this->x, xRwheelY + this->y, LxwheelZ + this->z);
-    RRwheel->setPosition(xRwheelX + this->x, xRwheelY + this->y, RxwheelZ + this->z);
-    LFwheel->setPosition(xFwheelX + this->x, xFwheelY + this->y, LxwheelZ + this->z);
-    RFwheel->setPosition(xFwheelX + this->x, xFwheelY + this->y, RxwheelZ + this->z);
-    
-    // all components to the correct rotation
     std::vector<Shape *>::iterator it;
-    for (it = shapes.begin(); it != shapes.end(); ++it) {
-        (*it)->setRotation(this->rotation);
-    }
+    
+    // we push the current coordinates
+    glPushMatrix();
+    
+    // now rotate relative to the vehicle
+    // all components to the correct rotation and position
+    this->positionInGL();
     
     // add steering
-    LFwheel->setRotation(LFwheel->getRotation() + steering);
-    RFwheel->setRotation(RFwheel->getRotation() + steering);
+    LFwheel->setRotation(steering);
+    RFwheel->setRotation(steering);
     
     for (it = shapes.begin(); it != shapes.end(); ++it) {
+        
         (*it)->draw();
     }
+    
+    // now pop the matrix, back to original coordinates
+    glPopMatrix();
+    
     //    for (int i = 0; i < 4; i++) {
     //        shapes[i]->draw();
     //    }
