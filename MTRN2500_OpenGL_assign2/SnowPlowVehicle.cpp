@@ -19,10 +19,10 @@ SnowPlowVehicle::SnowPlowVehicle() {
     
     //position for rims
     
-    LRrim = new RectangularPrism(-3.0, 0.5, -2.25, 0.25, 0.25, 0.5);
-    RRrim = new RectangularPrism(-3.0, 0.5, 2.25, 0.25, 0.25, 0.5);
-    LFrim = new RectangularPrism(3.0, 0.25, -2.25, 0.25, 0.25, 0.5);
-    RFrim = new RectangularPrism(3.0, 0.25, 2.25, 0.25, 0.25, 0.5);
+    LRrim = new RectangularPrism(-3.0, 0.5, -2.25, 0.5, 0.5, 0.6);
+    RRrim = new RectangularPrism(-3.0, 0.5, 2.25, 0.5, 0.5, 0.6);
+    LFrim = new RectangularPrism(3.0, 0.25, -2.25, 0.5, 0.5, 0.6);
+    RFrim = new RectangularPrism(3.0, 0.25, 2.25, 0.5, 0.5, 0.6);
     
     
     //position for wheels
@@ -62,6 +62,10 @@ SnowPlowVehicle::SnowPlowVehicle() {
     LFrim->draw();
     RRrim->draw();
     RFrim->draw();
+    LRrim->setColor(0, 0, 255);
+    LFrim->setColor(0, 0, 255);
+    RRrim->setColor(0, 0, 255);
+    RFrim->setColor(0, 0, 255);
     
     this->addShape(body);
     this->addShape(frontdiffuser);
