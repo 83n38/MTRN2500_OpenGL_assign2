@@ -21,7 +21,7 @@ SnowPlowVehicle::SnowPlowVehicle() {
     LRrim = new RectangularPrism(-3.0, 0.5, -2.25, 0.25, 0.25, 0.5);
     RRrim = new RectangularPrism(-3.0, 0.5, 2.25, 0.25, 0.25, 0.5);
     LFrim = new RectangularPrism(3.0, 0.25, -2.25, 0.25, 0.25, 0.5);
-    RFrim = new RectangularPrism(3.0, 0.25, -2.25, 0.25, 0.25, 0.5);
+    RFrim = new RectangularPrism(3.0, 0.25, 2.25, 0.25, 0.25, 0.5);
     
     
     //position for wheels
