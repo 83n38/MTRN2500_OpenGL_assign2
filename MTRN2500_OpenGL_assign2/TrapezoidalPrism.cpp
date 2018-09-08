@@ -21,7 +21,7 @@ TrapezoidalPrism::TrapezoidalPrism() {
     v2[X] = 0.5f; v2[Y] = 0.f; v2[Z] = 1.f;
     v3[X] = -0.5f; v2[Y] = 0.f; v3[Z] = 1.f;
     v4[X] = -1.f; v4[Y] = 0.f; v4[Z] = 0.f;
-    length[X] = 0.f; length[Y] = -1.f; length[Z] = 0.f;
+    length[X] = 0.f; length[Y] = 1.f; length[Z] = 0.f;
     c[X] = x = this->findCentroidX(v1, v2, v3, v4, 1.0);
     //std::cout << x << std::endl;
     c[Y] = y = this->findCentroidY(v1, v2, v3, v4, 1.0);
@@ -44,18 +44,22 @@ void TrapezoidalPrism::init(float* v1_, float* v2_, float* v3_, float* v4_, doub
     float* normal = scos::VectorMaths::cross(v12, v13);
     scos::VectorMaths::normalise(normal);
     
+    float proj_normal[3];
     // make sure vertice 4 is on the same plane, so
     // v14new = proj(v14 onto normal) = v14 - ((v14.n)/n^2) x n
-    normal[X] *= scos::VectorMaths::dot(v14, normal)/(pow(normal[X], 2) + pow(normal[Y],2) + pow(normal[Z],2));
-    normal[Y] *= scos::VectorMaths::dot(v14, normal)/(pow(normal[X], 2) + pow(normal[Y],2) + pow(normal[Z],2));
-    normal[Z] *= scos::VectorMaths::dot(v14, normal)/(pow(normal[X], 2) + pow(normal[Y],2) + pow(normal[Z],2));
+    
+    proj_normal[X] *= scos::VectorMaths::dot(v14, normal)/(pow(normal[X], 2) + pow(normal[Y],2) + pow(normal[Z],2));
+    proj_normal[Y] *= scos::VectorMaths::dot(v14, normal)/(pow(normal[X], 2) + pow(normal[Y],2) + pow(normal[Z],2));
+    proj_normal[Z] *= scos::VectorMaths::dot(v14, normal)/(pow(normal[X], 2) + pow(normal[Y],2) + pow(normal[Z],2));
     // so now corrected v4 = v14new + v1
-    float* v14new = scos::VectorMaths::plus(scos::VectorMaths::minus(v14, normal), v1);
+    float* v14new = scos::VectorMaths::plus(scos::VectorMaths::minus(v14, proj_normal), v1);
     std::copy(v14new, v14new+3, v4);
     std::cout << "X: " << v4[X] << "Y :" << v4[Y] << "Z: " << v4[Z] << std::endl;
     
     // multiple of length in the normal direction
-    length[X] = float(length_*normal[X]); length[Y] = float(length_*normal[Y]); length[Z] = float(length_*normal[Z]);
+    length[X] = -float(length_*normal[X]);
+    length[Y] = -float(length_*normal[Y]);
+    length[Z] = -float(length_*normal[Z]);
     c[X] = x; c[Y] = y; c[Z] = z;
 }
 
@@ -187,6 +191,8 @@ float* TrapezoidalPrism::findCentroid(float *v1_, float *v2_, float *v3_, float*
     float* normal = scos::VectorMaths::cross(v12, v13);
     scos::VectorMaths::normalise(normal);
     
+    std::cout << "Normal X: " << normal[X] << "Y: " <<normal[Y] << "Z: " << normal[Z] << std::endl;
+    
     // make sure vertice 4 is on the same plane, so
     // v14new = proj(v14 onto normal) = v14 - ((v14.n)/n^2) x n
     float normal_proj[3];
@@ -203,7 +209,9 @@ float* TrapezoidalPrism::findCentroid(float *v1_, float *v2_, float *v3_, float*
     // multiple of length in the normal direction
     float length[3];
     // each term is divided by two because we ant the middle of the prism
-    length[X] = float(length_*normal[X]/2); length[Y] = float(length_*normal[Y]/2); length[Z] = float(length_*normal[Z]/2);
+    length[X] = -float(length_*normal[X]/2);
+    length[Y] = -float(length_*normal[Y]/2);
+    length[Z] = -float(length_*normal[Z]/2);
     float* centroid = scos::VectorMaths::minus(c, length);
     return centroid;
 }

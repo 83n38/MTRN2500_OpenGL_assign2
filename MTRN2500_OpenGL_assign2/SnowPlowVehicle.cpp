@@ -1,6 +1,6 @@
 //
 //  SnowPlowVehicle.cpp
-//  
+//
 //
 //  Created by Ben Henderson on 2/9/18.
 //
@@ -10,30 +10,42 @@
 #include <iterator>
 
 SnowPlowVehicle::SnowPlowVehicle() {
-    float v1[] = {2.f, 0.f, 1.5f};
-    float v2[] = {2.f, 0.f, -1.5f};
-    float v3[] = {1.5f, 0.f, 0.5f};
-    float v4[] = {1.5f, 0.f, -0.5f};
-    TrapezoidalPrism* plow = new TrapezoidalPrism(v1, v2, v3, v4, 3);
+    float v1[] = {1.5f, 2.f, -2.f};
+    float v2[] = {0.f, 3.5f, -2.f};
+    float v3[] = {-2.f, 3.5f, -2.f};
+    float v4[] = {-3.f, 2.f, -2.f};
+    TrapezoidalPrism* window = new TrapezoidalPrism(v1, v2, v3, v4, 4);
     
-    Cylinder* shaft = new Cylinder(1.5, 0, 1.5, 0.5, 1);
+    //position for wheels
+    Cylinder* LRwheel = new Cylinder(-3.0, 0.5, -2.25, 1, 0.5);
+    Cylinder* RRwheel = new Cylinder(-3.0, 0.5, 2.25, 1, 0.5);
+    Cylinder* LFwheel = new Cylinder(3.0, 0.25, -2.25, 0.75, 0.5);
+    Cylinder* RFwheel = new Cylinder(3.0, 0.25, 2.25, 0.75, 0.5);
     
-    RectangularPrism* body = new RectangularPrism(-0.75, 2, 0, 2.5, 2, 1.5);
+    //position for vehicle body
+    RectangularPrism* body = new RectangularPrism(0, 1, 0, 6, 2, 4);
     
-    float w1[] = {0.f, 3.f, 1.f};
-    float w2[] = {-0.1f, 3.5f, 1.f};
-    float w3[] = {-0.5f, 3.f, 1.f};
-    TriangularPrism* window = new TriangularPrism(w1, w2, w3, 2);
+    //position for front diffuser
+    float w1[] = {3.f, 0.f, -2.f};
+    float w2[] = {3.f, 1.f, -2.f};
+    float w3[] = {5.f, 0.f, -2.f};
+    TriangularPrism* frontdiffuser = new TriangularPrism(w1, w2, w3, 4);
     
     body->draw();
+    frontdiffuser->draw();
+    LRwheel->draw();
+    RRwheel->draw();
+    LFwheel->draw();
+    RFwheel->draw();
     window->draw();
-    shaft->draw();
-    plow->draw();
-
+    
     this->addShape(body);
+    this->addShape(frontdiffuser);
     this->addShape(window);
-    this->addShape(plow);
-    this->addShape(shaft);
+    this->addShape(LRwheel);
+    this->addShape(RRwheel);
+    this->addShape(LFwheel);
+    this->addShape(RFwheel);
 }
 
 void SnowPlowVehicle::draw() {
@@ -42,12 +54,13 @@ void SnowPlowVehicle::draw() {
     {
         (*it)->draw();
     }
-//    for (int i = 0; i < 4; i++) {
-//        shapes[i]->draw();
-//    }
-//    window.draw();
-//    plow.draw();
-//    shaft.draw();
+    //    for (int i = 0; i < 4; i++) {
+    //        shapes[i]->draw();
+    //    }
+    //    window.draw();
+    //    plow.draw();
+    //    shaft.draw();
     
     
 }
+
