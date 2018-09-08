@@ -85,7 +85,7 @@ SnowPlowVehicle::SnowPlowVehicle(VehicleModel vm) {
             case RECTANGULAR_PRISM: {
                 // just a pointer to the rectangular parameters struct so I don't have to type it all out
                 struct ShapeParameter::RectangularParameters* data = &(it->params.rect);
-                RectangularPrism* rect = new RectangularPrism(it->xyz[0], it->xyz[0], it->xyz[0], data->xlen, data->ylen, data->zlen, it->rotation);
+                RectangularPrism* rect = new RectangularPrism(it->xyz[0], it->xyz[1], it->xyz[2], data->xlen, data->ylen, data->zlen, it->rotation);
                 rect->setColor(it->rgb[0], it->rgb[1], it->rgb[2]);
                 rect->draw();
                 this->addShape(rect);
@@ -111,7 +111,7 @@ SnowPlowVehicle::SnowPlowVehicle(VehicleModel vm) {
                 
             case CYLINDER: {
                 struct ShapeParameter::CylinderParameters* data = &(it->params.cyl);
-                Cylinder* cyl = new Cylinder(it->xyz[0], it->xyz[0], it->xyz[0], data->radius, data->depth, it->rotation);
+                Cylinder* cyl = new Cylinder(it->xyz[0], it->xyz[1], it->xyz[2], data->radius, data->depth, it->rotation);
                 cyl->setColor(it->rgb[0], it->rgb[1], it->rgb[2]);
                 cyl->draw();
                 this->addShape(cyl);
