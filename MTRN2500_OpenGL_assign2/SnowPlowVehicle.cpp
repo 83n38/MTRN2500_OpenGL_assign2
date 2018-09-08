@@ -16,6 +16,14 @@ SnowPlowVehicle::SnowPlowVehicle() {
     float v4[] = {-3.f, 2.f, -2.f};
     window = new TrapezoidalPrism(v1, v2, v3, v4, 4);
     
+    //position for rims
+    
+    LRrim = new RectangularPrism(-3.0, 0.5, -2.25, 0.25, 0.25, 0.5);
+    RRrim = new RectangularPrism(-3.0, 0.5, 2.25, 0.25, 0.25, 0.5);
+    LFrim = new RectangularPrism(3.0, 0.25, -2.25, 0.25, 0.25, 0.5);
+    RFrim = new RectangularPrism(3.0, 0.25, -2.25, 0.25, 0.25, 0.5);
+    
+    
     //position for wheels
     LRwheel = new Cylinder(-3.0, 0.5, -2.25, 1, 0.5);
     RRwheel = new Cylinder(-3.0, 0.5, 2.25, 1, 0.5);
@@ -41,6 +49,10 @@ SnowPlowVehicle::SnowPlowVehicle() {
     LFwheel->draw();
     RFwheel->draw();
     window->draw();
+    LRrim->draw();
+    LFrim->draw();
+    RRrim->draw();
+    RFrim->draw();
     
     this->addShape(body);
     this->addShape(frontdiffuser);
@@ -49,6 +61,10 @@ SnowPlowVehicle::SnowPlowVehicle() {
     this->addShape(RRwheel);
     this->addShape(LFwheel);
     this->addShape(RFwheel);
+    this->addShape(LRrim);
+    this->addShape(LFrim);
+    this->addShape(RRrim);
+    this->addShape(RFrim);
 }
 
 void SnowPlowVehicle::draw() {
