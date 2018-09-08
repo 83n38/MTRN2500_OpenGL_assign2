@@ -21,6 +21,7 @@ Shape::Shape() {
 	x = y = z = 0.0;
 	rotation = 0.0;
 	red = green = blue = 1.0;
+    isSteering = false;
 };
 
 Shape::Shape(double x_, double y_, double z_) {
@@ -30,6 +31,7 @@ Shape::Shape(double x_, double y_, double z_) {
 
 	rotation = 0.0;
 	red = green = blue = 1.0;
+    isSteering = false;
 };
 
 Shape::Shape(double x_, double y_, double z_, double rotation_) {
@@ -40,6 +42,7 @@ Shape::Shape(double x_, double y_, double z_, double rotation_) {
 
 	rotation = rotation_;
 	red = green = blue = 1.0;
+    isSteering = false;
 };
 
 Shape::~Shape() {

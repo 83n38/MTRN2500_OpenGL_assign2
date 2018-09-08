@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		613DCED92143B5B200D3264F /* RemoteVehicle.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 613DCED72143B5B200D3264F /* RemoteVehicle.cpp */; };
 		614D593F213A311600F73E03 /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 614D593E213A311600F73E03 /* OpenGL.framework */; };
 		614D5941213A311B00F73E03 /* GLUT.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 614D5940213A311B00F73E03 /* GLUT.framework */; };
 		616C49BC213A8D2000DD2251 /* VectorMaths.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 616C49A2213A8D1C00DD2251 /* VectorMaths.cpp */; };
@@ -43,6 +44,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		613DCED72143B5B200D3264F /* RemoteVehicle.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = RemoteVehicle.cpp; sourceTree = "<group>"; };
+		613DCED82143B5B200D3264F /* RemoteVehicle.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = RemoteVehicle.hpp; sourceTree = "<group>"; };
 		614D5933213A310C00F73E03 /* MTRN2500_OpenGL_assign2 */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = MTRN2500_OpenGL_assign2; sourceTree = BUILT_PRODUCTS_DIR; };
 		614D593E213A311600F73E03 /* OpenGL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGL.framework; path = System/Library/Frameworks/OpenGL.framework; sourceTree = SDKROOT; };
 		614D5940213A311B00F73E03 /* GLUT.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GLUT.framework; path = System/Library/Frameworks/GLUT.framework; sourceTree = SDKROOT; };
@@ -126,6 +129,8 @@
 				616C49D1213B578100DD2251 /* Cylinder.cpp */,
 				616C49D3213B578A00DD2251 /* Cylinder.hpp */,
 				616C49CF213B1D7800DD2251 /* TriangularPrism.cpp */,
+				613DCED72143B5B200D3264F /* RemoteVehicle.cpp */,
+				613DCED82143B5B200D3264F /* RemoteVehicle.hpp */,
 				616C49CE213B1D7400DD2251 /* TriangularPrism.hpp */,
 				616C49CC213A9CB300DD2251 /* RectangularPrism.cpp */,
 				616C49CB213A9CAE00DD2251 /* RectangularPrism.hpp */,
@@ -227,6 +232,7 @@
 			files = (
 				616C49C7213A8D2000DD2251 /* Shape.cpp in Sources */,
 				616C49C1213A8D2000DD2251 /* RemoteDataManager.cpp in Sources */,
+				613DCED92143B5B200D3264F /* RemoteVehicle.cpp in Sources */,
 				616C49D2213B578300DD2251 /* Cylinder.cpp in Sources */,
 				616C49BF213A8D2000DD2251 /* ObstacleManager.cpp in Sources */,
 				616C49C5213A8D2000DD2251 /* Ground.cpp in Sources */,

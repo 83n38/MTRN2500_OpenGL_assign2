@@ -38,6 +38,7 @@
 #include "Cylinder.hpp"
 #include "Vehicle.hpp"
 #include "SnowPlowVehicle.hpp"
+#include "RemoteVehicle.hpp"
 
 #include "RemoteDataManager.hpp"
 #include "Messages.hpp"
@@ -368,7 +369,7 @@ void idle() {
 								// uncomment the line below to create remote vehicles
                                 
                                 // pass in the vm struct to the constructor so we make it right
-								otherVehicles[vm.remoteID] = new SnowPlowVehicle(vm);
+								otherVehicles[vm.remoteID] = new RemoteVehicle(vm);
 
 								//
 								// more student code goes here
