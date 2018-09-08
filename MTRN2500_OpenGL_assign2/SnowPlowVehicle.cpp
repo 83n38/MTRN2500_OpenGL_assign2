@@ -84,8 +84,12 @@ SnowPlowVehicle::SnowPlowVehicle(VehicleModel vm) {
                 
             case TRIANGULAR_PRISM: {
                 struct ShapeParameter::TriangularParameters* data = &(it->params.tri);
-                
-                RectangularPrism* tri = new TriangularPrism(v1, v2, v3, length, it->rotation);
+                float v1[] = {1.5f, 2.f, -2.f};
+                float v2[] = {0.f, 3.5f, -2.f};
+                float v3[] = {-2.f, 3.5f, -2.f};
+                TriangularPrism* tri = new TriangularPrism(v1, v2, v3, data->depth, it->rotation);
+                tri->draw();
+                this->addShape(tri);
                 break;
             }
                 
