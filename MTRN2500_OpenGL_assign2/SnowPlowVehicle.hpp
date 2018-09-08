@@ -24,6 +24,10 @@ private:
     // shapes
     TrapezoidalPrism* window;
     RectangularPrism* body;
+    RectangularPrism* LRrim;
+    RectangularPrism* LFrim;
+    RectangularPrism* RRrim;
+    RectangularPrism* RFrim;
     TriangularPrism* frontdiffuser;
     Cylinder* LRwheel;
     Cylinder* RRwheel;
