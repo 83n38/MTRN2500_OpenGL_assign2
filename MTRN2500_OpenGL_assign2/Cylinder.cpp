@@ -32,8 +32,8 @@ Cylinder::Cylinder(double x_, double y_, double z_, double radius_, double lengt
 
 void Cylinder::draw() {
     
-    std::cout << "Drawing " << this << "... " << std::endl;
-    std::cout << "Length: " << length << " Radius: " << radius << std::endl;
+    //std::cout << "Drawing " << this << "... " << std::endl;
+    //std::cout << "Length: " << length << " Radius: " << radius << std::endl;
     
     GLUquadricObj *quadratic;
     quadratic = gluNewQuadric();
@@ -41,17 +41,17 @@ void Cylinder::draw() {
     glPushMatrix();
     
     // positions the cube correctly
-    std::cout << "Positioning to X:" << x << " Y: " << y << " Z: " << z << std::endl;
+    //std::cout << "Positioning to X:" << x << " Y: " << y << " Z: " << z << std::endl;
     this->positionInGL();
     glTranslatef(0, 0, -length/2);
     
     // colours correctly
     this->setColorInGL();
     
-    std::cout << "Drawing cylinder wrapping part... ";
+    //std::cout << "Drawing cylinder wrapping part... ";
     gluCylinder(quadratic, radius, radius, length, 32, 32);
     
-    std::cout << "Drawing triangle fan at one end of cylinder... \n";
+    //std::cout << "Drawing triangle fan at one end of cylinder... \n";
     glBegin(GL_TRIANGLE_FAN);
     glVertex3f(0, 0, 0);
     for (int i = 0; i <= 32; i++) {
@@ -59,7 +59,7 @@ void Cylinder::draw() {
     }
     glEnd();
     
-    std::cout << "Drawing triangle fan at other end of cylinder... \n";
+    //std::cout << "Drawing triangle fan at other end of cylinder... \n";
     glBegin(GL_TRIANGLE_FAN);
     glVertex3f(0, 0, length);
     for (int i = 0; i <= 32; i++) {
@@ -67,7 +67,7 @@ void Cylinder::draw() {
     }
     glEnd();
     
-    std::cout << "Drawing black edges... \n";
+    //std::cout << "Drawing black edges... \n";
     // black edges
     glColor3f(0.0f, 0.0f, 0.0f);
     glBegin(GL_LINE_LOOP);
@@ -82,6 +82,6 @@ void Cylinder::draw() {
     glEnd();
     glPopMatrix();
     
-    std::cout << "Done drawing cylinder " << this << "\n" << std::endl;
+    //std::cout << "Done drawing cylinder " << this << "\n" << std::endl;
     
 }

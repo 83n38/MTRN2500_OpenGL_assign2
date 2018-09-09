@@ -45,6 +45,8 @@
 #include "HUD.hpp"
 #include "ObstacleManager.hpp"
 
+#include "convertLocalVehicle.hpp"
+
 void display();
 void reshape(int width, int height);
 void idle();
@@ -329,151 +331,85 @@ void idle() {
 					VehicleModel vm;
 					vm.remoteID = 0;
 
-/*
- float v1[] = {1.5f, 2.f, -2.f};
- float v2[] = {0.f, 3.5f, -2.f};
- float v3[] = {-2.f, 3.5f, -2.f};
- float v4[] = {-3.f, 2.f, -2.f};
- window = new TrapezoidalPrism(v1, v2, v3, v4, 4);
- 
- //position for rims
- 
- LRrim = new RectangularPrism(-3.0, 0.5, -2.25, 0.5, 0.5, 0.6);
- RRrim = new RectangularPrism(-3.0, 0.5, 2.25, 0.5, 0.5, 0.6);
- LFrim = new RectangularPrism(3.0, 0.25, -2.25, 0.5, 0.5, 0.6);
- RFrim = new RectangularPrism(3.0, 0.25, 2.25, 0.5, 0.5, 0.6);
- 
- 
- //position for wheels
- LRwheel = new Cylinder(-3.0, 0.5, -2.25, 1, 0.5);
- RRwheel = new Cylinder(-3.0, 0.5, 2.25, 1, 0.5);
- LFwheel = new Cylinder(3.0, 0.25, -2.25, 0.75, 0.5);
- RFwheel = new Cylinder(3.0, 0.25, 2.25, 0.75, 0.5);
- 
- //position for vehicle body
- body = new RectangularPrism(0, 1, 0, 6, 2, 4);
- 
- //position for front diffuser
- float w1[] = {3.f, 0.f, -2.f};
- float w2[] = {3.f, 1.f, -2.f};
- float w3[] = {5.f, 0.f, -2.f};
- frontdiffuser = new TriangularPrism(w1, w2, w3, 4);
- */
-//                    //position for vehicle body
-//                    //body = new RectangularPrism(0, 1, 0, 6, 2, 4);
-//                    struct ShapeInit* body = new struct ShapeInit;
-//                    body->type =  RECTANGULAR_PRISM;
-//                    body->xyz[0] = 0.f;
-//                    body->xyz[1] = 0.f;
-//                    body->xyz[2] = 0.f;
-//                    body->rotation = 0;
-//                    body->rgb[0] = 255;
-//                    body->rgb[1] = 255;
-//                    body->rgb[2] = 255;
-//                    body->params.rect.xlen = 6;
-//                    body->params.rect.ylen = 2;
-//                    body->params.rect.zlen = 4;
-//                    vm.shapes.push_back(*body);
-//
-//
-//                    /*
-//                     window stuff
-//                     float v1[] = {1.5f, 2.f, -2.f};
-//                     float v2[] = {0.f, 3.5f, -2.f};
-//                     float v3[] = {-2.f, 3.5f, -2.f};
-//                     float v4[] = {-3.f, 2.f, -2.f};
-//                     window = new TrapezoidalPrism(v1, v2, v3, v4, 4);
-//                    */
-//                    struct ShapeInit* window = new struct ShapeInit;
-//                    window->type =  TRAPEZOIDAL_PRISM;
-//                    window->xyz[0] = 4.5f/2;
-//                    window->xyz[1] = 2.f;
-//                    window->xyz[2] = 0.f;
-//                    window->rotation = 0;
-//                    window->rgb[0] = 255;
-//                    window->rgb[1] = 255;
-//                    window->rgb[2] = 255;
-//                    window->params.trap.alen = 4.5;
-//                    window->params.trap.blen = 2;
-//                    window->params.trap.height = 1.5;
-//                    window->params.trap.aoff = 1;
-//                    window->params.trap.depth = 4;
-//                    vm.shapes.push_back(*window);
-//
-//                    /*
-//                     position for front diffuser
-//                    float w1[] = {3.f, 0.f, -2.f};
-//                    float w2[] = {3.f, 1.f, -2.f};
-//                    float w3[] = {5.f, 0.f, -2.f};
-//                    frontdiffuser = new TriangularPrism(w1, w2, w3, 4);
-//                    */
-//                    struct ShapeInit* diffuser = new struct ShapeInit;
-//                    diffuser->type =  TRIANGULAR_PRISM;
-//                    diffuser->xyz[0] = 5.f;
-//                    diffuser->xyz[1] = 1.f;
-//                    diffuser->xyz[2] = 0.f;
-//                    diffuser->rotation = 0;
-//                    diffuser->rgb[0] = 255;
-//                    diffuser->rgb[1] = 255;
-//                    diffuser->rgb[2] = 255;
-//                    diffuser->params.tri.alen = 4.5;
-//                    diffuser->params.tri.blen = 2;
-//                    diffuser->params.tri.angle = 90;
-//                    diffuser->params.tri.depth = 4;
-//                    vm.shapes.push_back(*diffuser);
 
-//                case RECTANGULAR_PRISM: {
-//                    // just a pointer to the rectangular parameters struct so I don't have to type it all out
-//                    struct ShapeParameter::RectangularParameters* data = &(it->params.rect);
-//                    RectangularPrism* rect = new RectangularPrism(it->xyz[0], it->xyz[1]+data->ylen/2, it->xyz[2], data->xlen, data->ylen, data->zlen, it->rotation);
-//                    rect->setColor(it->rgb[0], it->rgb[1], it->rgb[2]);
-//                    rect->draw();
-//                    this->addShape(rect);
-//                    break;
-//                }
-//
-//                case TRIANGULAR_PRISM: {
-//                    struct ShapeParameter::TriangularParameters* data = &(it->params.tri);
-//                    float v1[] = {it->xyz[0] - data->alen, it->xyz[1], it->xyz[2] - data->depth/2};
-//                    float v2[] = {static_cast<float>(it->xyz[0] - data->alen + data->blen*cos(data->angle*M_PI/180.f)), static_cast<float>(it->xyz[1] + data->blen*sin(data->angle*M_PI/180.f)), it->xyz[2] - data->depth/2};
-//                    float v3[] = {it->xyz[0], it->xyz[1], it->xyz[2] - data->depth/2};
-//                    TriangularPrism* tri = new TriangularPrism(v1, v2, v3, data->depth, it->rotation);
-//                    tri->setColor(it->rgb[0], it->rgb[1], it->rgb[2]);
-//                    tri->draw();
-//                    this->addShape(tri);
-//                    break;
-//                }
-//
-//                case TRAPEZOIDAL_PRISM: {
-//                    struct ShapeParameter::TrapezoidalParameters* data = &(it->params.trap);
-//                    float v1[] = {it->xyz[0] - data->alen/2, it->xyz[1], it->xyz[2] + data->depth/2};
-//                    float v2[] = {it->xyz[0] - data->alen/2 + data->aoff, it->xyz[1] + data->height, it->xyz[2] + data->depth/2};
-//                    float v3[] = {it->xyz[0] - data->alen/2 + data->aoff + data->blen, it->xyz[1] + data->height, it->xyz[2] + data->depth/2};
-//                    float v4[] = {it->xyz[0] + data->alen/2, it->xyz[1], it->xyz[2] + data->depth/2};
-//                    TrapezoidalPrism* trap = new TrapezoidalPrism(v1, v2, v3, v4, data->depth, it->rotation);
-//                    trap->setColor(it->rgb[0], it->rgb[1], it->rgb[2]);
-//                    trap->draw();
-//                    this->addShape(trap);
-//                    break;
-//                }
-//
-//                case CYLINDER: {
-//                    struct ShapeParameter::CylinderParameters* data = &(it->params.cyl);
-//                    Cylinder* cyl = new Cylinder(it->xyz[0], it->xyz[1] + data->radius, it->xyz[2], data->radius, data->depth, it->rotation);
-//                    cyl->setColor(it->rgb[0], it->rgb[1], it->rgb[2]);
-//                    if (data->isRolling) {
-//                        // make this roll
-//                    }
-//                    cyl->isSteering = data->isSteering;
-//                    cyl->isRolling = data->isRolling;
-//                    if (cyl->isRolling) {
-//                        cyl->radiusOfRoll = data->radius;
-//                    }
-//
-//                    cyl->draw();
-//                    this->addShape(cyl);
-//                    break;
-//                }
+                    //position for vehicle body
+                    //body = new RectangularPrism(0, 1, 0, 6, 2, 4);
+                    struct ShapeInit* body = new struct ShapeInit;
+                    float color[3] = {1.f, 0.19f, 0.19f};
+                    Convert::convertRect(body, 0, 1, 0, 6, 2, 4, color);
+                    vm.shapes.push_back(*body);
+                    
+                    //window stuff
+                    float v1[] = {1.5f, 2.f, -2.f};
+                    float v2[] = {0.f, 3.5f, -2.f};
+                    float v3[] = {-2.f, 3.5f, -2.f};
+                    float v4[] = {-3.f, 2.f, -2.f};
+                    color[0] = 0.18f; color[1] = 0.56f; color[2] = 1.f;
+                    //0.18f, 0.56f, 1.f
+                    struct ShapeInit* window = new struct ShapeInit;
+                    Convert::convertTrap(window, v1, v2, v3, v4, 4, color);
+                    vm.shapes.push_back(*window);
+
+                    //position for front diffuser
+                    float w1[] = {3.f, 0.f, -2.f};
+                    float w2[] = {3.f, 1.f, -2.f};
+                    float w3[] = {5.f, 0.f, -2.f};
+                    //frontdiffuser = new TriangularPrism(w1, w2, w3, 4);
+                    color[0] = 1.0f; color[1] = 0.19f; color[2] = 0.19f;
+                    struct ShapeInit* diffuser = new struct ShapeInit;
+                    Convert::convertTri(diffuser, w1, w2, w3, 4, color);
+                    vm.shapes.push_back(*diffuser);
+                    
+                    //LRrim = new RectangularPrism(-3.0, 0.5, -2.25, 0.5, 0.5, 0.6);
+                    color[0] = 0; color[1] = 0; color[2] = 1;
+                    struct ShapeInit* LRrim = new struct ShapeInit;
+                    Convert::convertRect(LRrim, -3, 0.5, -2.25, 0.5, 0.5, 0.6, color);
+                    vm.shapes.push_back(*LRrim);
+                    
+                    //RRrim = new RectangularPrism(-3.0, 0.5, 2.25, 0.5, 0.5, 0.6);
+                    //color[0] = 1.0f; color[1] = 0.19f; color[2] = 0.19f;
+                    struct ShapeInit* RRrim = new struct ShapeInit;
+                    Convert::convertRect(RRrim, -3, 0.5, 2.25, 0.5, 0.5, 0.6, color);
+                    vm.shapes.push_back(*RRrim);
+                    
+                    //LFrim = new RectangularPrism(3.0, 0.25, -2.25, 0.5, 0.5, 0.6);
+                    //color[0] = 1.0f; color[1] = 0.19f; color[2] = 0.19f;
+                    struct ShapeInit* LFrim = new struct ShapeInit;
+                    Convert::convertRect(LFrim, 3, 0.25, -2.25, 0.5, 0.5, 0.6, color);
+                    vm.shapes.push_back(*LFrim);
+                    
+                    //RFrim = new RectangularPrism(3.0, 0.25, 2.25, 0.5, 0.5, 0.6);
+                    //color[0] = 1.0f; color[1] = 0.19f; color[2] = 0.19f;
+                    struct ShapeInit* RFrim = new struct ShapeInit;
+                    Convert::convertRect(RFrim, 3, 0.25, 2.25, 0.5, 0.5, 0.6, color);
+                    vm.shapes.push_back(*RFrim);
+                    
+                    
+                    //position for wheels
+                    //LRwheel = new Cylinder(-3.0, 0.5, -2.25, 1, 0.5);
+                    color[0] = 1; color[1] = 1; color[2] = 1;
+                    struct ShapeInit* LRwheel = new struct ShapeInit;
+                    Convert::convertCyl(LRwheel, -3.0, 0.5, -2.25, 1, 0.5, color, false, true);
+                    vm.shapes.push_back(*LRwheel);
+                    
+                    //RRwheel = new Cylinder(-3.0, 0.5, 2.25, 1, 0.5);
+                    //color[0] = 1.0f; color[1] = 0.19f; color[2] = 0.19f;
+                    struct ShapeInit* RRwheel = new struct ShapeInit;
+                    Convert::convertCyl(RRwheel, -3.0, 0.5, 2.25, 1, 0.5, color, false, true);
+                    vm.shapes.push_back(*RRwheel);
+                    
+                    //LFwheel = new Cylinder(3.0, 0.25, -2.25, 0.75, 0.5);
+                    //color[0] = 1.0f; color[1] = 0.19f; color[2] = 0.19f;
+                    struct ShapeInit* LFwheel = new struct ShapeInit;
+                    Convert::convertCyl(LFwheel, 3.0, 0.25, -2.25, 0.75, 0.5, color, true, true);
+                    vm.shapes.push_back(*LFwheel);
+                    
+                    //RFwheel = new Cylinder(3.0, 0.25, 2.25, 0.75, 0.5);
+                    //color[0] = 1.0f; color[1] = 0.19f; color[2] = 0.19f;
+                    struct ShapeInit* RFwheel = new struct ShapeInit;
+                    Convert::convertCyl(RFwheel, 3.0, 0.25, 2.25, 0.75, 0.5, color, true, true);
+                    vm.shapes.push_back(*RFwheel);
+                    
 
 					RemoteDataManager::Write(GetVehicleModelStr(vm));
 				}
