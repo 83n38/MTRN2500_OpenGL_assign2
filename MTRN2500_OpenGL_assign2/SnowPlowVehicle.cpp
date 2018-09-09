@@ -49,7 +49,24 @@ SnowPlowVehicle::SnowPlowVehicle() {
     LFrim->isSteering = true;
     RFrim->isSteering = true;
     
-    //
+    // all wheels and rims to roll
+    LFwheel->isRolling = true;
+    RFwheel->isRolling = true;
+    LFrim->isRolling = true;
+    RFrim->isRolling = true;
+    LFwheel->radiusOfRoll = 0.75;
+    RFwheel->radiusOfRoll = 0.75;
+    LFrim->radiusOfRoll = 0.75;
+    RFrim->radiusOfRoll = 0.75;
+    
+    LRwheel->isRolling = true;
+    RRwheel->isRolling = true;
+    LRrim->isRolling = true;
+    RRrim->isRolling = true;
+    LRwheel->radiusOfRoll = 1;
+    RRwheel->radiusOfRoll = 1;
+    LRrim->radiusOfRoll = 1;
+    RRrim->radiusOfRoll = 1;
     
     body->draw();
     frontdiffuser->draw();
@@ -98,6 +115,14 @@ void SnowPlowVehicle::draw() {
         // add steering
         if ((*it)->isSteering) {
             (*it)->setRotation(steering);
+        }
+        
+        // add rolling
+        if ((*it)->isRolling) {
+            double rollAngle = (*it)->getRoll(); // get the previous roll angle
+            rollAngle -= this->getSpeed()/(*it)->radiusOfRoll; // update the roll angle depending on the size of the wheel
+            // smaller wheels should roll quicker
+            (*it)->setRoll(rollAngle);
         }
         (*it)->draw();
     }

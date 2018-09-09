@@ -22,6 +22,8 @@ Shape::Shape() {
 	rotation = 0.0;
 	red = green = blue = 1.0;
     isSteering = false;
+    isRolling = false;
+    radiusOfRoll = 0;
 };
 
 Shape::Shape(double x_, double y_, double z_) {
@@ -32,6 +34,8 @@ Shape::Shape(double x_, double y_, double z_) {
 	rotation = 0.0;
 	red = green = blue = 1.0;
     isSteering = false;
+    isRolling = false;
+    radiusOfRoll = 0;
 };
 
 Shape::Shape(double x_, double y_, double z_, double rotation_) {
@@ -43,6 +47,9 @@ Shape::Shape(double x_, double y_, double z_, double rotation_) {
 	rotation = rotation_;
 	red = green = blue = 1.0;
     isSteering = false;
+    isRolling = false;
+    isRolling = false;
+    radiusOfRoll = 0;
 };
 
 Shape::~Shape() {
@@ -64,6 +71,10 @@ double Shape::getRotation() {
 	return rotation;
 };
 
+double Shape::getRoll() {
+    return roll;
+}
+
 void Shape::setX(double x_) {
 	x = x_;
 };
@@ -80,6 +91,14 @@ void Shape::setRotation(double rotation_) {
 	rotation = rotation_;
 };
 
+void Shape::setRoll(double roll_) {
+    roll = roll_;
+    
+    while (rotation > 360) rotation -= 360;
+    while (rotation < 0) rotation += 360;
+    
+}
+
 
 void Shape::setPosition(double x_, double y_, double z_) {
 	x = x_;
@@ -90,6 +109,9 @@ void Shape::setPosition(double x_, double y_, double z_) {
 void Shape::positionInGL() {
 	glTranslated(x, y, z);
 	glRotated(-rotation, 0, 1, 0);
+    if (isRolling) {
+        glRotated(roll, 0, 0, 1);
+    }
 };
 
 void Shape::setColorInGL() {
