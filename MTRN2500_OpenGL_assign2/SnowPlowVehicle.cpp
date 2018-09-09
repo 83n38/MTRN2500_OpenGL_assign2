@@ -83,6 +83,11 @@ SnowPlowVehicle::SnowPlowVehicle() {
     LFrim->setColor(0, 0, 255);
     RRrim->setColor(0, 0, 255);
     RFrim->setColor(0, 0, 255);
+    body->setColor(255, 48, 48);
+    frontdiffuser->setColor(255, 48, 48);
+    window->setColor(30, 144, 255);
+    
+    
     
     this->addShape(body);
     this->addShape(frontdiffuser);
