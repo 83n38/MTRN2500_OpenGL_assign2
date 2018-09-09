@@ -112,7 +112,7 @@ void SnowPlowVehicle::draw() {
     this->positionInGL();
     
     //std::cout << "\nshapes has this many items: " << shapes.size();
-    std::cout << "LRwheel: " << LRwheel << "\nRRwheel: " << RRwheel << "\nLFwheel: " << LFwheel << "\nRFwheel: " << RFwheel << std::endl;
+    //std::cout << "LRwheel: " << LRwheel << "\nRRwheel: " << RRwheel << "\nLFwheel: " << LFwheel << "\nRFwheel: " << RFwheel << std::endl;
     
     
     for (it = shapes.begin(); it != shapes.end(); ++it) {
