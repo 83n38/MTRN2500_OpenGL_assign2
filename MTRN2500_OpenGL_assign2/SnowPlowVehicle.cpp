@@ -96,6 +96,7 @@ SnowPlowVehicle::SnowPlowVehicle() {
     this->addShape(LFrim);
     this->addShape(RRrim);
     this->addShape(RFrim);
+    
 }
 
 
@@ -110,9 +111,12 @@ void SnowPlowVehicle::draw() {
     // all components to the correct rotation and position
     this->positionInGL();
     
+    //std::cout << "\nshapes has this many items: " << shapes.size();
+    std::cout << "LRwheel: " << LRwheel << "\nRRwheel: " << RRwheel << "\nLFwheel: " << LFwheel << "\nRFwheel: " << RFwheel << std::endl;
     
     
     for (it = shapes.begin(); it != shapes.end(); ++it) {
+
         // add steering
         if ((*it)->getIsSteering()) {
             (*it)->setRotation(steering);
@@ -125,7 +129,10 @@ void SnowPlowVehicle::draw() {
             // smaller wheels should roll quicker
             (*it)->setRoll(rollAngle);
         }
+        
         (*it)->draw();
+//        std::cout << "Drew object @X: " << (*it)->getX() << " Y: " <<(*it)->getY() << " Z: " <<(*it)->getZ() << std::endl;
+//        std::cout << "Colour R: " << (*it)->getRed() << " G: " <<(*it)->getGreen() << " B: " <<(*it)->getBlue() <<"\n" << std::endl;
     }
     
     // now pop the matrix, back to original coordinates

@@ -53,9 +53,7 @@ RemoteVehicle::RemoteVehicle(VehicleModel vm) {
                 struct ShapeParameter::CylinderParameters* data = &(it->params.cyl);
                 Cylinder* cyl = new Cylinder(it->xyz[0], it->xyz[1] + data->radius, it->xyz[2], data->radius, data->depth, it->rotation);
                 cyl->setColor(it->rgb[0], it->rgb[1], it->rgb[2]);
-                if (data->isRolling) {
-                    // make this roll
-                }
+
                 cyl->setIsSteering(data->isSteering);
                 cyl->setIsRolling(data->isRolling);
                 if (cyl->getIsRolling()) {

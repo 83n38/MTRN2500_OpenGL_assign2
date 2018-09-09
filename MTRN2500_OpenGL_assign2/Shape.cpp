@@ -23,7 +23,8 @@ Shape::Shape() {
 	red = green = blue = 1.0;
     isSteering = false;
     isRolling = false;
-    radiusOfRoll = 0;
+    radiusOfRoll = 1;
+    roll = 0;
 };
 
 Shape::Shape(double x_, double y_, double z_) {
@@ -35,7 +36,8 @@ Shape::Shape(double x_, double y_, double z_) {
 	red = green = blue = 1.0;
     isSteering = false;
     isRolling = false;
-    radiusOfRoll = 0;
+    radiusOfRoll = 1;
+    roll = 0;
 };
 
 Shape::Shape(double x_, double y_, double z_, double rotation_) {
@@ -49,7 +51,8 @@ Shape::Shape(double x_, double y_, double z_, double rotation_) {
     isSteering = false;
     isRolling = false;
     isRolling = false;
-    radiusOfRoll = 0;
+    radiusOfRoll = 1;
+    roll = 0;
 };
 
 Shape::~Shape() {
