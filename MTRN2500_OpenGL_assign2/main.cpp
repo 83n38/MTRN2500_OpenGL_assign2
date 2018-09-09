@@ -328,7 +328,7 @@ void idle() {
 
 					VehicleModel vm;
 					vm.remoteID = 0;
-                    
+
 /*
  float v1[] = {1.5f, 2.f, -2.f};
  float v2[] = {0.f, 3.5f, -2.f};
@@ -359,68 +359,68 @@ void idle() {
  float w3[] = {5.f, 0.f, -2.f};
  frontdiffuser = new TriangularPrism(w1, w2, w3, 4);
  */
-                    //position for vehicle body
-                    //body = new RectangularPrism(0, 1, 0, 6, 2, 4);
-                    struct ShapeInit* body = new struct ShapeInit;
-                    body->type =  RECTANGULAR_PRISM;
-                    body->xyz[0] = 0.f;
-                    body->xyz[1] = 0.f;
-                    body->xyz[2] = 0.f;
-                    body->rotation = 0;
-                    body->rgb[0] = 255;
-                    body->rgb[1] = 255;
-                    body->rgb[2] = 255;
-                    body->params.rect.xlen = 6;
-                    body->params.rect.ylen = 2;
-                    body->params.rect.zlen = 4;
-                    vm.shapes.push_back(*body);
-                    
-                    
-                    /*
-                     window stuff
-                     float v1[] = {1.5f, 2.f, -2.f};
-                     float v2[] = {0.f, 3.5f, -2.f};
-                     float v3[] = {-2.f, 3.5f, -2.f};
-                     float v4[] = {-3.f, 2.f, -2.f};
-                     window = new TrapezoidalPrism(v1, v2, v3, v4, 4);
-                    */
-                    struct ShapeInit* window = new struct ShapeInit;
-                    window->type =  TRAPEZOIDAL_PRISM;
-                    window->xyz[0] = 4.5f/2;
-                    window->xyz[1] = 2.f;
-                    window->xyz[2] = 0.f;
-                    window->rotation = 0;
-                    window->rgb[0] = 255;
-                    window->rgb[1] = 255;
-                    window->rgb[2] = 255;
-                    window->params.trap.alen = 4.5;
-                    window->params.trap.blen = 2;
-                    window->params.trap.height = 1.5;
-                    window->params.trap.aoff = 1;
-                    window->params.trap.depth = 4;
-                    vm.shapes.push_back(*window);
-                    
-                    /*
-                     position for front diffuser
-                    float w1[] = {3.f, 0.f, -2.f};
-                    float w2[] = {3.f, 1.f, -2.f};
-                    float w3[] = {5.f, 0.f, -2.f};
-                    frontdiffuser = new TriangularPrism(w1, w2, w3, 4);
-                    */
-                    struct ShapeInit* diffuser = new struct ShapeInit;
-                    diffuser->type =  TRIANGULAR_PRISM;
-                    diffuser->xyz[0] = 5.f;
-                    diffuser->xyz[1] = 1.f;
-                    diffuser->xyz[2] = 0.f;
-                    diffuser->rotation = 0;
-                    diffuser->rgb[0] = 255;
-                    diffuser->rgb[1] = 255;
-                    diffuser->rgb[2] = 255;
-                    diffuser->params.tri.alen = 4.5;
-                    diffuser->params.tri.blen = 2;
-                    diffuser->params.tri.angle = 90;
-                    diffuser->params.tri.depth = 4;
-                    vm.shapes.push_back(*diffuser);
+//                    //position for vehicle body
+//                    //body = new RectangularPrism(0, 1, 0, 6, 2, 4);
+//                    struct ShapeInit* body = new struct ShapeInit;
+//                    body->type =  RECTANGULAR_PRISM;
+//                    body->xyz[0] = 0.f;
+//                    body->xyz[1] = 0.f;
+//                    body->xyz[2] = 0.f;
+//                    body->rotation = 0;
+//                    body->rgb[0] = 255;
+//                    body->rgb[1] = 255;
+//                    body->rgb[2] = 255;
+//                    body->params.rect.xlen = 6;
+//                    body->params.rect.ylen = 2;
+//                    body->params.rect.zlen = 4;
+//                    vm.shapes.push_back(*body);
+//
+//
+//                    /*
+//                     window stuff
+//                     float v1[] = {1.5f, 2.f, -2.f};
+//                     float v2[] = {0.f, 3.5f, -2.f};
+//                     float v3[] = {-2.f, 3.5f, -2.f};
+//                     float v4[] = {-3.f, 2.f, -2.f};
+//                     window = new TrapezoidalPrism(v1, v2, v3, v4, 4);
+//                    */
+//                    struct ShapeInit* window = new struct ShapeInit;
+//                    window->type =  TRAPEZOIDAL_PRISM;
+//                    window->xyz[0] = 4.5f/2;
+//                    window->xyz[1] = 2.f;
+//                    window->xyz[2] = 0.f;
+//                    window->rotation = 0;
+//                    window->rgb[0] = 255;
+//                    window->rgb[1] = 255;
+//                    window->rgb[2] = 255;
+//                    window->params.trap.alen = 4.5;
+//                    window->params.trap.blen = 2;
+//                    window->params.trap.height = 1.5;
+//                    window->params.trap.aoff = 1;
+//                    window->params.trap.depth = 4;
+//                    vm.shapes.push_back(*window);
+//
+//                    /*
+//                     position for front diffuser
+//                    float w1[] = {3.f, 0.f, -2.f};
+//                    float w2[] = {3.f, 1.f, -2.f};
+//                    float w3[] = {5.f, 0.f, -2.f};
+//                    frontdiffuser = new TriangularPrism(w1, w2, w3, 4);
+//                    */
+//                    struct ShapeInit* diffuser = new struct ShapeInit;
+//                    diffuser->type =  TRIANGULAR_PRISM;
+//                    diffuser->xyz[0] = 5.f;
+//                    diffuser->xyz[1] = 1.f;
+//                    diffuser->xyz[2] = 0.f;
+//                    diffuser->rotation = 0;
+//                    diffuser->rgb[0] = 255;
+//                    diffuser->rgb[1] = 255;
+//                    diffuser->rgb[2] = 255;
+//                    diffuser->params.tri.alen = 4.5;
+//                    diffuser->params.tri.blen = 2;
+//                    diffuser->params.tri.angle = 90;
+//                    diffuser->params.tri.depth = 4;
+//                    vm.shapes.push_back(*diffuser);
 
 //                case RECTANGULAR_PRISM: {
 //                    // just a pointer to the rectangular parameters struct so I don't have to type it all out

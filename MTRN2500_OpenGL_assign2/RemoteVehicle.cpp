@@ -56,10 +56,10 @@ RemoteVehicle::RemoteVehicle(VehicleModel vm) {
                 if (data->isRolling) {
                     // make this roll
                 }
-                cyl->isSteering = data->isSteering;
-                cyl->isRolling = data->isRolling;
-                if (cyl->isRolling) {
-                    cyl->radiusOfRoll = data->radius;
+                cyl->setIsSteering(data->isSteering);
+                cyl->setIsRolling(data->isRolling);
+                if (cyl->getIsRolling()) {
+                    cyl->setRadiusOfRoll(data->radius);
                 }
                 
                 cyl->draw();
@@ -90,14 +90,14 @@ void RemoteVehicle::draw() {
     
     for (it = shapes.begin(); it != shapes.end(); ++it) {
         // add steering
-        if ((*it)->isSteering) {
+        if ((*it)->getIsSteering()) {
             (*it)->setRotation(steering);
         }
         
         // add rolling
-        if ((*it)->isRolling) {
+        if ((*it)->getIsRolling()) {
             double rollAngle = (*it)->getRoll(); // get the previous roll angle
-            rollAngle -= this->getSpeed()/(*it)->radiusOfRoll; // update the roll angle depending on the size of the wheel
+            rollAngle -= this->getSpeed()/(*it)->getRadiusOfRoll(); // update the roll angle depending on the size of the wheel
             // smaller wheels should roll quicker
             (*it)->setRoll(rollAngle);
         }

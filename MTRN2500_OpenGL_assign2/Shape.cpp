@@ -99,6 +99,26 @@ void Shape::setRoll(double roll_) {
     
 }
 
+void Shape::setIsRolling(bool b) {
+    isRolling = b;
+}
+void Shape::setIsSteering(bool b) {
+    isSteering = b;
+}
+void Shape::setRadiusOfRoll(double r) {
+    radiusOfRoll = r;
+}
+
+bool Shape::getIsRolling() {
+    return isRolling;
+}
+bool Shape::getIsSteering() {
+    return isSteering;
+}
+double Shape::getRadiusOfRoll() {
+    return radiusOfRoll;
+}
+
 
 void Shape::setPosition(double x_, double y_, double z_) {
 	x = x_;

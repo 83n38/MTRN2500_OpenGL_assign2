@@ -40,54 +40,50 @@ SnowPlowVehicle::SnowPlowVehicle() {
     float w3[] = {5.f, 0.f, -2.f};
     frontdiffuser = new TriangularPrism(w1, w2, w3, 4);
     
-    // get the offset from the vehicles X, Y, and Z
-    this->getOffsets();
-    
     // set the front wheels and rims to steer
-    LFwheel->isSteering = true;
-    RFwheel->isSteering = true;
-    LFrim->isSteering = true;
-    RFrim->isSteering = true;
+    LFwheel->setIsSteering(true);
+    RFwheel->setIsSteering(true);
+    LFrim->setIsSteering(true);
+    RFrim->setIsSteering(true);
     
     // all wheels and rims to roll
-    LFwheel->isRolling = true;
-    RFwheel->isRolling = true;
-    LFrim->isRolling = true;
-    RFrim->isRolling = true;
-    LFwheel->radiusOfRoll = 0.75;
-    RFwheel->radiusOfRoll = 0.75;
-    LFrim->radiusOfRoll = 0.75;
-    RFrim->radiusOfRoll = 0.75;
+    LFwheel->setIsRolling(true);
+    RFwheel->setIsRolling(true);
+    LFrim->setIsRolling(true);
+    RFrim->setIsRolling(true);
+    LFwheel->setRadiusOfRoll(0.75);
+    RFwheel->setRadiusOfRoll(0.75);
+    LFrim->setRadiusOfRoll(0.75);
+    RFrim->setRadiusOfRoll(0.75);
     
-    LRwheel->isRolling = true;
-    RRwheel->isRolling = true;
-    LRrim->isRolling = true;
-    RRrim->isRolling = true;
-    LRwheel->radiusOfRoll = 1;
-    RRwheel->radiusOfRoll = 1;
-    LRrim->radiusOfRoll = 1;
-    RRrim->radiusOfRoll = 1;
+    LRwheel->setIsRolling(true);
+    RRwheel->setIsRolling(true);
+    LRrim->setIsRolling(true);
+    RRrim->setIsRolling(true);
+    LRwheel->setRadiusOfRoll(1);
+    RRwheel->setRadiusOfRoll(1);
+    LRrim->setRadiusOfRoll(1);
+    RRrim->setRadiusOfRoll(1);
     
-    body->draw();
-    frontdiffuser->draw();
-    LRwheel->draw();
-    RRwheel->draw();
-    LFwheel->draw();
-    RFwheel->draw();
-    window->draw();
-    LRrim->draw();
-    LFrim->draw();
-    RRrim->draw();
-    RFrim->draw();
-    LRrim->setColor(0, 0, 255);
-    LFrim->setColor(0, 0, 255);
-    RRrim->setColor(0, 0, 255);
-    RFrim->setColor(0, 0, 255);
-    body->setColor(255, 48, 48);
-    frontdiffuser->setColor(255, 48, 48);
-    window->setColor(30, 144, 255);
-    
-    
+//    body->draw();
+//    frontdiffuser->draw();
+//    LRwheel->draw();
+//    RRwheel->draw();
+//    LFwheel->draw();
+//    RFwheel->draw();
+//    window->draw();
+//    LRrim->draw();
+//    LFrim->draw();
+//    RRrim->draw();
+//    RFrim->draw();
+
+    LRrim->setColor(0.f, 0.f, 1.f);
+    LFrim->setColor(0.f, 0.f, 1.f);
+    RRrim->setColor(0.f, 0.f, 1.f);
+    RFrim->setColor(0.f, 0.f, 1.f);
+    body->setColor(1.f, 0.19f, 0.19f);
+    frontdiffuser->setColor(1.f, 0.19f, 0.19f);
+    window->setColor(0.18f, 0.56f, 1.f);
     
     this->addShape(body);
     this->addShape(frontdiffuser);
@@ -118,14 +114,14 @@ void SnowPlowVehicle::draw() {
     
     for (it = shapes.begin(); it != shapes.end(); ++it) {
         // add steering
-        if ((*it)->isSteering) {
+        if ((*it)->getIsSteering()) {
             (*it)->setRotation(steering);
         }
         
         // add rolling
-        if ((*it)->isRolling) {
+        if ((*it)->getIsRolling()) {
             double rollAngle = (*it)->getRoll(); // get the previous roll angle
-            rollAngle -= this->getSpeed()/(*it)->radiusOfRoll; // update the roll angle depending on the size of the wheel
+            rollAngle -= this->getSpeed()/(*it)->getRadiusOfRoll(); // update the roll angle depending on the size of the wheel
             // smaller wheels should roll quicker
             (*it)->setRoll(rollAngle);
         }
@@ -136,30 +132,5 @@ void SnowPlowVehicle::draw() {
     glPopMatrix();
     
     
-}
-
-void SnowPlowVehicle::getOffsets() {
-    // window offsets
-    windowX = window->getX();
-    windowY = window->getY();
-    windowZ = window->getZ();
-    
-    // wheel offsets
-    xRwheelX = LRwheel->getX();
-    xRwheelY = LRwheel->getY();
-    xFwheelX = RFwheel->getX();
-    xFwheelY = RFwheel->getY();
-    LxwheelZ = LRwheel->getZ();
-    RxwheelZ = RFwheel->getZ();
-    
-    // body offsets
-    bodyX = body->getX();
-    bodyY = body->getY();
-    bodyZ = body->getZ();
-    
-    // diffuser offsets
-    frontdiffuserX = frontdiffuser->getX();
-    frontdiffuserY = frontdiffuser->getY();
-    frontdiffuserZ = frontdiffuser->getZ();
 }
 

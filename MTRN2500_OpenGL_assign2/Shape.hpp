@@ -35,9 +35,14 @@ public:
 	double getBlue();
 	void setColor(float red_, float green_, float blue_);
 
-    bool isRolling;
-    bool isSteering;
-    double radiusOfRoll;
+    void setIsRolling(bool b);
+    void setIsSteering(bool b);
+    void setRadiusOfRoll(double r);
+    
+    bool getIsRolling();
+    bool getIsSteering();
+    double getRadiusOfRoll();
+    
     
     
 
@@ -46,6 +51,10 @@ protected:
 	double rotation;              // heading of the object in the horizontal plane (degrees)
     double roll;                  // roll angle
 	float red, green, blue;       // colour of object
+    
+    bool isRolling;
+    bool isSteering;
+    double radiusOfRoll;
 
 };
 
