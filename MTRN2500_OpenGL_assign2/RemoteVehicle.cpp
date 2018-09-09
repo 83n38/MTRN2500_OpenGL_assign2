@@ -254,9 +254,15 @@ void RemoteVehicle::draw() {
         
         // add rolling
         if ((*it)->getIsRolling()) {
+            //std::cout << "Something remote is rolling, hopefully sometimes it's blue? " << (*it)->getBlue() << std::endl;
+            //std::cout << "Speed: " << this->getSpeed() << std::endl;
             double rollAngle = (*it)->getRoll(); // get the previous roll angle
+            //std::cout << "Previous roll angle: " << rollAngle << std::endl;
             rollAngle -= this->getSpeed()/(*it)->getRadiusOfRoll(); // update the roll angle depending on the size of the wheel
             // smaller wheels should roll quicker
+            if ((*it)->getBlue() == 1.f) {
+                //std::cout << "roll angle: " << rollAngle << std::endl;
+            }
             (*it)->setRoll(rollAngle);
         }
         (*it)->draw();

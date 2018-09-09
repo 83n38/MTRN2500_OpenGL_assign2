@@ -16,6 +16,8 @@
 #include <GL/glut.h>
 #endif
 
+#include <iostream>
+
 
 Shape::Shape() {
 	x = y = z = 0.0;
@@ -97,8 +99,8 @@ void Shape::setRotation(double rotation_) {
 void Shape::setRoll(double roll_) {
     roll = roll_;
     
-    while (rotation > 360) rotation -= 360;
-    while (rotation < 0) rotation += 360;
+    while (roll > 360) roll -= 360;
+    while (roll < 0) roll += 360;
     
 }
 
@@ -134,6 +136,9 @@ void Shape::positionInGL() {
 	glRotated(-rotation, 0, 1, 0);
     if (isRolling) {
         glRotated(roll, 0, 0, 1);
+//        if (this->blue == 1.f) {
+//            std::cout << roll << std::endl;
+//        }
     }
 };
 
