@@ -49,21 +49,21 @@ void Cylinder::draw() {
     this->setColorInGL();
     
     //std::cout << "Drawing cylinder wrapping part... ";
-    gluCylinder(quadratic, radius, radius, length, 32, 32);
+    gluCylinder(quadratic, radius, radius, length, 5, 5);
     
     //std::cout << "Drawing triangle fan at one end of cylinder... \n";
     glBegin(GL_TRIANGLE_FAN);
     glVertex3f(0, 0, 0);
-    for (int i = 0; i <= 32; i++) {
-        glVertex3f(radius*sinf(2*pi*i/32.f), radius*cosf(2*pi*i/32.f), 0);
+    for (int i = 0; i <= 5; i++) {
+        glVertex3f(radius*sinf(2*pi*i/5.f), radius*cosf(2*pi*i/5.f), 0);
     }
     glEnd();
     
     //std::cout << "Drawing triangle fan at other end of cylinder... \n";
     glBegin(GL_TRIANGLE_FAN);
     glVertex3f(0, 0, length);
-    for (int i = 0; i <= 32; i++) {
-        glVertex3f(radius*sin(2*pi*i/32), radius*cos(2*pi*i/32), length);
+    for (int i = 0; i <= 5; i++) {
+        glVertex3f(radius*sin(2*pi*i/5), radius*cos(2*pi*i/5), length);
     }
     glEnd();
     
@@ -71,13 +71,13 @@ void Cylinder::draw() {
     // black edges
     glColor3f(0.0f, 0.0f, 0.0f);
     glBegin(GL_LINE_LOOP);
-    for (int i = 0; i <= 32; i++) {
-        glVertex3f(radius*sin(2*pi*i/32), radius*cos(2*pi*i/32), 0);
+    for (int i = 0; i <= 5; i++) {
+        glVertex3f(radius*sin(2*pi*i/5), radius*cos(2*pi*i/5), 0);
     }
     glEnd();
     glBegin(GL_LINE_LOOP);
-    for (int i = 0; i <= 32; i++) {
-        glVertex3f(radius*sin(2*pi*i/32), radius*cos(2*pi*i/32), length);
+    for (int i = 0; i <= 5; i++) {
+        glVertex3f(radius*sin(2*pi*i/5), radius*cos(2*pi*i/5), length);
     }
     glEnd();
     glPopMatrix();
