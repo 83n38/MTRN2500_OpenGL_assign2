@@ -11,6 +11,7 @@
 #include <math.h>
 
 SnowPlowVehicle::SnowPlowVehicle() {
+    id = 0;
     float v1[] = {1.5f, 2.f, -2.f};
     float v2[] = {0.f, 3.5f, -2.f};
     float v3[] = {-2.f, 3.5f, -2.f};

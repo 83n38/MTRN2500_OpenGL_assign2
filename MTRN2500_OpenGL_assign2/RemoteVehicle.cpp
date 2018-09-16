@@ -142,6 +142,11 @@ static ShapeInit* isRim(VehicleModel* vm, std::vector<ShapeInit>::iterator it) {
 
 // constructor for remote vehicles recived from messages from the interwebs
 RemoteVehicle::RemoteVehicle(VehicleModel vm) {
+    id = vm.remoteID;
+    if (id == 1) {
+        std::cout << "this vehicle has id 1" <<std::endl;
+    }
+    
     // loop through all the shapes that are in this model
     std::vector<ShapeInit>::iterator it;
     for (it = vm.shapes.begin(); it != vm.shapes.end(); ++it) {
@@ -151,15 +156,15 @@ RemoteVehicle::RemoteVehicle(VehicleModel vm) {
                 struct ShapeParameter::RectangularParameters* data = &(it->params.rect);
                 RectangularPrism* rect = new RectangularPrism(it->xyz[0], it->xyz[1]+data->ylen/2, it->xyz[2], data->xlen, data->ylen, data->zlen, it->rotation);
                 
-                // check to see if this might be a rim to a wheel
-                ShapeInit* wheel = isRim(&vm, it);
-                if (wheel != NULL) {
-                    // then this is a rim!
-                    // so copy the parameters of the wheel it's a rim to
-                    rect->setIsSteering(wheel->params.cyl.isSteering);
-                    rect->setIsRolling(wheel->params.cyl.isRolling);
-                    rect->setRadiusOfRoll(wheel->params.cyl.radius);
-                }
+//                // check to see if this might be a rim to a wheel
+//                ShapeInit* wheel = isRim(&vm, it);
+//                if (wheel != NULL) {
+//                    // then this is a rim!
+//                    // so copy the parameters of the wheel it's a rim to
+//                    rect->setIsSteering(wheel->params.cyl.isSteering);
+//                    rect->setIsRolling(wheel->params.cyl.isRolling);
+//                    rect->setRadiusOfRoll(wheel->params.cyl.radius);
+//                }
                 rect->setColor(it->rgb[0], it->rgb[1], it->rgb[2]);
                 rect->draw();
                 this->addShape(rect);
@@ -173,14 +178,14 @@ RemoteVehicle::RemoteVehicle(VehicleModel vm) {
                 float v3[] = {it->xyz[0], it->xyz[1], it->xyz[2] - data->depth/2};
                 TriangularPrism* tri = new TriangularPrism(v1, v2, v3, data->depth, it->rotation);
                 
-                // check to see if this might be a rim to a wheel
-                ShapeInit* wheel = isRim(&vm, it);
-                if (wheel != NULL) {
-                    // then this is a rim!
-                    tri->setIsSteering(wheel->params.cyl.isSteering);
-                    tri->setIsRolling(wheel->params.cyl.isRolling);
-                    tri->setRadiusOfRoll(wheel->params.cyl.radius);
-                }
+//                // check to see if this might be a rim to a wheel
+//                ShapeInit* wheel = isRim(&vm, it);
+//                if (wheel != NULL) {
+//                    // then this is a rim!
+//                    tri->setIsSteering(wheel->params.cyl.isSteering);
+//                    tri->setIsRolling(wheel->params.cyl.isRolling);
+//                    tri->setRadiusOfRoll(wheel->params.cyl.radius);
+//                }
                 tri->setColor(it->rgb[0], it->rgb[1], it->rgb[2]);
                 tri->draw();
                 this->addShape(tri);
@@ -195,14 +200,14 @@ RemoteVehicle::RemoteVehicle(VehicleModel vm) {
                 float v4[] = {it->xyz[0] + data->alen/2, it->xyz[1], it->xyz[2] + data->depth/2};
                 TrapezoidalPrism* trap = new TrapezoidalPrism(v1, v2, v3, v4, data->depth, it->rotation);
                 
-                // check to see if this might be a rim to a wheel
-                ShapeInit* wheel = isRim(&vm, it);
-                if (wheel != NULL) {
-                    // then this is a rim!
-                    trap->setIsSteering(wheel->params.cyl.isSteering);
-                    trap->setIsRolling(wheel->params.cyl.isRolling);
-                    trap->setRadiusOfRoll(wheel->params.cyl.radius);
-                }
+//                // check to see if this might be a rim to a wheel
+//                ShapeInit* wheel = isRim(&vm, it);
+//                if (wheel != NULL) {
+//                    // then this is a rim!
+//                    trap->setIsSteering(wheel->params.cyl.isSteering);
+//                    trap->setIsRolling(wheel->params.cyl.isRolling);
+//                    trap->setRadiusOfRoll(wheel->params.cyl.radius);
+//                }
                 trap->setColor(it->rgb[0], it->rgb[1], it->rgb[2]);
                 trap->draw();
                 this->addShape(trap);

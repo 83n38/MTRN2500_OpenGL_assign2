@@ -2,7 +2,7 @@
 #include "Vehicle.hpp"
 
 Vehicle::Vehicle() {
-	speed = steering = 0;
+	id = speed = steering = 0;
 };
 
 Vehicle::~Vehicle()

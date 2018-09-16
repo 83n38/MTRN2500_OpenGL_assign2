@@ -27,13 +27,17 @@ public:
 
 	double getSpeed() const { return speed; }
 	double getSteering() const { return steering; }
+    int getID() const {return id; }
 
 	void addShape(Shape * shape);
+    
+    
 protected:
 	double speed;     // m/s
 	double steering;  // degrees
 
 	std::vector<Shape *> shapes;
+    int id;
 };
 
 double clamp(double a, double n, double b);

@@ -94,6 +94,9 @@ void Shape::setZ(double z_) {
 
 void Shape::setRotation(double rotation_) {
 	rotation = rotation_;
+    
+    while (rotation > 360) rotation -= 360;
+    while (rotation < 0) rotation += 360;
 };
 
 void Shape::setRoll(double roll_) {

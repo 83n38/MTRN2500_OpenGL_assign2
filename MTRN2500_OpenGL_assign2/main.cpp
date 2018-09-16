@@ -73,14 +73,12 @@ Vehicle * vehicle = NULL;
 double speed = 0;
 double steering = 0;
 
-TriangularPrism tri;
-Cylinder cyl;
-TrapezoidalPrism trap;
-
 // default goal location
 std::deque<GoalState> goals;
 
 std::map<int, Vehicle *> otherVehicles;
+
+bool isChasing = false;
 
 int frameCounter = 0;
 
@@ -527,7 +525,44 @@ void idle() {
 
 	// do a simulation step
 	if (vehicle != NULL) {
-		vehicle->update(speed, steering, elapsedTime);
+        if (!isChasing) {
+            vehicle->update(speed, steering, elapsedTime);
+        } else {
+            // we want to chase vehicle ID 1
+            for(std::map<int, Vehicle*>::iterator it = otherVehicles.begin(); it  != otherVehicles.end(); ++it) {
+                
+                if (it->second->getID() == 1) {
+                    // this is a vector from our local vehicle pointing to the vehicle we want to chase
+                    double chaseVectorX = it->second->getX() - vehicle->getX();
+                    double chaseVectorZ = it->second->getZ() - vehicle->getZ();
+                    // angle between our local vehicle and the one we want to chase
+                    cout << "X: " << chaseVectorX << " Z: " << chaseVectorZ << " Theta: " << 180*atan2(chaseVectorZ, chaseVectorX)/M_PI << " Rot: " << vehicle->getRotation() << endl;
+                    double localRotation = vehicle->getRotation();
+                    if (localRotation > 180) {
+                        localRotation = localRotation - 360;
+                    }
+                    double theta = localRotation - 180*atan2(chaseVectorZ, chaseVectorX)/M_PI;
+                    //cout << 180*atan2(chaseVectorZ, chaseVectorX)/M_PI << endl;
+                    if (abs(theta) >= Vehicle::MAX_LEFT_STEERING_DEGS) {
+                        // set theta to be at most the max steering angle
+                        theta = Vehicle::MAX_LEFT_STEERING_DEGS*theta/abs(theta);
+                    }
+                    double dist = sqrt(pow(chaseVectorX, 2) + pow(chaseVectorZ, 2));
+                    if (dist >= Vehicle::MAX_FORWARD_SPEED_MPS) {
+                        dist = Vehicle::MAX_FORWARD_SPEED_MPS;
+                    }
+                    //cout << "X: " << chaseVectorX << " Z: " << chaseVectorZ << " Theta: " << theta << " dist: " << dist << endl;
+                    
+                    vehicle->update(dist, -theta, elapsedTime);
+                    
+                } else {
+                    // we couldn't find vehicle with ID 1
+                    //isChasing = false;
+                    //vehicle->update(speed, steering, elapsedTime);
+                }
+            }
+            
+        }
 	}
 	for(std::map<int, Vehicle*>::iterator iter = otherVehicles.begin(); iter  != otherVehicles.end(); ++iter) {
 		iter->second->update(elapsedTime);
@@ -560,6 +595,11 @@ void keydown(unsigned char key, int x, int y) {
 	case 'p':
 		Camera::get()->togglePursuitMode();
 		break;
+    case 'l':
+        // chase vehicle with ID 1
+        // toggle isChasing
+        isChasing = !isChasing;
+        break;
 	}
 
 };
